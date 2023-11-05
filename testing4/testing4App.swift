@@ -1,0 +1,17 @@
+//
+//  testing4App.swift
+//  testing4
+//
+//  Created by Admin on 2.11.23.
+//
+
+import SwiftUI
+
+@main
+struct testing4App: App {
+    var body: some Scene {
+        WindowGroup {
+            CookerinhoTabViews()
+        }
+    }
+}
