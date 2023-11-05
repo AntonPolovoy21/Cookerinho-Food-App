@@ -13,8 +13,7 @@ struct DishCellView: View {
     
     var body: some View {
         HStack {
-            Image(dish.imageURL)
-                .resizable()
+            CookerinhoRemoteImage(urlString: dish.imageURL)
                 .scaledToFit()
                 .frame(width: 120, height: 90)
                 .cornerRadius(8)
