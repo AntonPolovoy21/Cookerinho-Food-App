@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MenuView: View {
+struct DishListView: View {
     
     @StateObject private var viewModel = DishListViewModel()
     
@@ -18,13 +18,24 @@ struct MenuView: View {
                     ForEach(viewModel.dishes) { dish in
                         DishCellView(dish: dish)
                             .listRowSeparator(.visible)
+                            .onTapGesture {
+                                viewModel.sellectedDish = dish
+                                viewModel.isShowingDetail.toggle()
+                            }
                     }
                 }
                 .listStyle(.grouped)
                 .navigationTitle("🥥 Cookerinho")
+                .disabled(viewModel.isShowingDetail)
             }
+            .blur(radius: (viewModel.isShowingDetail ? 10 : 0))
             .onAppear {
                 viewModel.getDishes()
+            }
+            
+            if viewModel.isShowingDetail {
+                DishDetailView(isShowingDetail: $viewModel.isShowingDetail,
+                               dish: viewModel.sellectedDish ?? MockData.sampleDish)
             }
             
             if viewModel.isLoading {
@@ -40,5 +51,5 @@ struct MenuView: View {
 }
 
 #Preview {
-    MenuView()
+    DishListView()
 }

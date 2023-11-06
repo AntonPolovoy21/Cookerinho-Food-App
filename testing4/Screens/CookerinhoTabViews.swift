@@ -10,7 +10,7 @@ import SwiftUI
 struct CookerinhoTabViews: View {
     var body: some View {
         TabView {
-           MenuView()
+           DishListView()
                 .tabItem {
                     Label("Menu",
                           systemImage: "house")
