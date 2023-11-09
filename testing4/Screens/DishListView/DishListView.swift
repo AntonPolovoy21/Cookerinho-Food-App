@@ -24,7 +24,7 @@ struct DishListView: View {
                             }
                     }
                 }
-                .listStyle(.grouped)
+                .listStyle(.plain)
                 .navigationTitle("🥥 Cookerinho")
                 .disabled(viewModel.isShowingDetail)
             }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		845913082AFBF9AA00DECA16 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845913072AFBF9AA00DECA16 /* User.swift */; };
+		8459130B2AFC077D00DECA16 /* OrderEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459130A2AFC077D00DECA16 /* OrderEmptyStateView.swift */; };
+		8459130D2AFC498500DECA16 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459130C2AFC498500DECA16 /* Order.swift */; };
 		84C557122AF55FDA00B872C5 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C557112AF55FDA00B872C5 /* Dish.swift */; };
 		84C557142AF5636500B872C5 /* DishCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C557132AF5636500B872C5 /* DishCellView.swift */; };
 		84C557162AF56B2B00B872C5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C557152AF56B2B00B872C5 /* NetworkManager.swift */; };
@@ -30,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		845913072AFBF9AA00DECA16 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8459130A2AFC077D00DECA16 /* OrderEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEmptyStateView.swift; sourceTree = "<group>"; };
+		8459130C2AFC498500DECA16 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		84C557112AF55FDA00B872C5 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		84C557132AF5636500B872C5 /* DishCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCellView.swift; sourceTree = "<group>"; };
 		84C557152AF56B2B00B872C5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -64,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		845913092AFC075900DECA16 /* Empty States */ = {
+			isa = PBXGroup;
+			children = (
+				8459130A2AFC077D00DECA16 /* OrderEmptyStateView.swift */,
+			);
+			path = "Empty States";
+			sourceTree = "<group>";
+		};
 		84C557232AF9223200B872C5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				84C557112AF55FDA00B872C5 /* Dish.swift */,
+				845913072AFBF9AA00DECA16 /* User.swift */,
+				8459130C2AFC498500DECA16 /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,6 +155,7 @@
 		84C5572B2AF923A500B872C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				845913092AFC075900DECA16 /* Empty States */,
 				84C557312AF955AE00B872C5 /* Buttons */,
 				84C5572E2AF923F900B872C5 /* Image */,
 				84C5572D2AF923B800B872C5 /* Cells */,
@@ -303,6 +320,7 @@
 				84C557332AF955C500B872C5 /* MyButtonView.swift in Sources */,
 				84E236422AF3C61B00AEE5F1 /* OrderView.swift in Sources */,
 				84E236442AF3C7BC00AEE5F1 /* DishListView.swift in Sources */,
+				8459130D2AFC498500DECA16 /* Order.swift in Sources */,
 				84C557182AF56C6100B872C5 /* MyError.swift in Sources */,
 				84E236362AF3C42900AEE5F1 /* CookerinhoTabViews.swift in Sources */,
 				84C5571E2AF80D3800B872C5 /* LoadingView.swift in Sources */,
@@ -315,6 +333,8 @@
 				84C557142AF5636500B872C5 /* DishCellView.swift in Sources */,
 				84C557372AF960CE00B872C5 /* AccountViewModel.swift in Sources */,
 				84C557352AF9571800B872C5 /* XDismissButton.swift in Sources */,
+				845913082AFBF9AA00DECA16 /* User.swift in Sources */,
+				8459130B2AFC077D00DECA16 /* OrderEmptyStateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +468,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"testing4/Preview Content\"";
+				DEVELOPMENT_TEAM = XT35QKLZX4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -455,7 +476,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -477,6 +498,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"testing4/Preview Content\"";
+				DEVELOPMENT_TEAM = XT35QKLZX4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -484,7 +506,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

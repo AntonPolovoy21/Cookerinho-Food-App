@@ -8,25 +8,30 @@
 import SwiftUI
 
 struct CookerinhoTabViews: View {
+    
+    @EnvironmentObject var order: Order
+    
     var body: some View {
         TabView {
-           DishListView()
+            DishListView()
                 .tabItem {
                     Label("Menu",
-                          systemImage: "house")
+                          systemImage: "house"
+                    )
                 }
-
             AccountView()
-                 .tabItem {
-                     Label("Account",
-                           systemImage: "person.circle")
-                 }
-            
+                .tabItem {
+                    Label("Account",
+                          systemImage: "person.circle"
+                    )
+                }
             OrderView()
-                 .tabItem {
-                     Label("Order",
-                           systemImage: "list.bullet.clipboard")
-                 }
+                .tabItem {
+                    Label("Order",
+                          systemImage: "list.bullet.clipboard"
+                    )
+                }
+                .badge(order.orderItems.count)
         }
     }
 }

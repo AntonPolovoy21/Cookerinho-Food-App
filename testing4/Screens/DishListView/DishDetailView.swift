@@ -9,8 +9,9 @@ import SwiftUI
 
 struct DishDetailView: View {
     
-    @Binding var isShowingDetail: Bool
+    @EnvironmentObject var order: Order
     
+    @Binding var isShowingDetail: Bool
     let dish: Dish
     
     var body: some View {
@@ -24,7 +25,7 @@ struct DishDetailView: View {
                     .font(.title2)
                 Text(dish.description)
                     .multilineTextAlignment(.center)
-                    .foregroundStyle(Color.secondary)
+                    .foregroundStyle(Color.gray)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding()
                 HStack(spacing: 40) {
@@ -37,7 +38,8 @@ struct DishDetailView: View {
                 }
             }
             Button {
-                
+                isShowingDetail.toggle()
+                order.add(dish)
             } label: {
                 MyButtonView(title: "$\(dish.price, specifier: "%.2f") - Add To Order")
             }
@@ -74,7 +76,7 @@ struct DishStatView: View {
                 .font(.callout)
             Text(amount)
                 .italic()
-                .foregroundStyle(Color.secondary)
+                .foregroundStyle(Color.gray)
                 .font(.headline)
         }
     }

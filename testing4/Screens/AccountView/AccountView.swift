@@ -15,14 +15,14 @@ struct AccountView: View {
         NavigationView {
             Form {
                 Section(header: Text("Personal info")) {
-                    TextField("First Name", text: $viewModel.firstName)
-                    TextField("Last Name", text: $viewModel.lastName)
-                    TextField("Email", text: $viewModel.email)
+                    TextField("First Name", text: $viewModel.user.firstName)
+                    TextField("Last Name", text: $viewModel.user.lastName)
+                    TextField("Email", text: $viewModel.user.email)
                         .keyboardType(.emailAddress)
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
                     DatePicker("Birthday",
-                               selection: $viewModel.birthDate,
+                               selection: $viewModel.user.birthDate,
                                displayedComponents: .date)
                     .tint(.accent)
                     
@@ -34,10 +34,13 @@ struct AccountView: View {
                 }
                 
                 Section(header: Text("Requests")) {
-                    Toggle("Extra Napkins", isOn: $viewModel.isExtraNapkins)
-                    Toggle("Extra Napkins", isOn: $viewModel.frequentRefills)
+                    Toggle("Extra Napkins", isOn: $viewModel.user.isExtraNapkins)
+                    Toggle("Frequent Refills", isOn: $viewModel.user.frequentRefills)
                 }
                 .toggleStyle(SwitchToggleStyle(tint: Color.accent))
+            }
+            .onAppear {
+                viewModel.retrieveUser()
             }
             .navigationTitle("🤣 Account")
         }
