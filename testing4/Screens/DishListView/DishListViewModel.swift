@@ -2,12 +2,12 @@
 //  DishesListViewModel.swift
 //  testing4
 //
-//  Created by Admin on 3.11.23.
+//  Created by Anton Polovoy on 3.11.24.
 //
 
 import SwiftUI
 
-final class DishListViewModel: ObservableObject {
+@MainActor final class DishListViewModel: ObservableObject {
     
     @Published var dishes: [Dish] = []
     @Published var alertItem: AlertItem?
@@ -16,33 +16,32 @@ final class DishListViewModel: ObservableObject {
     @Published var sellectedDish: Dish?
     
     func getDishes() {
+        isLoading = true
         
-        isLoading.toggle()
-        
-        NetworkManager.shared.getAppetizers { result in
-            DispatchQueue.main.async {
+        Task {
+            do {
+                dishes = try await NetworkManager.shared.getDishesCall()
+                isLoading = false
+            }
+            catch {
                 
-                self.isLoading.toggle()
-                
-                switch result {
-                case .success(let dishes):
-                    self.dishes = dishes
-                    
-                case .failure(let error):
-                    switch error {
+                if let thisError = error as? MyError {
+                    switch thisError {
                     case .invalidURL:
-                        self.alertItem = AlertContext.invalidURL
-                        
+                        alertItem = AlertContext.invalidURL
                     case .invalidResponse:
-                        self.alertItem = AlertContext.invalidResponse
-                        
+                        alertItem = AlertContext.invalidResponse
                     case .invalidData:
-                        self.alertItem = AlertContext.invalidData
-                        
+                        alertItem = AlertContext.invalidData
                     case .unableToComplete:
-                        self.alertItem = AlertContext.unableToComplete
+                        alertItem = AlertContext.unableToComplete
                     }
                 }
+                else {
+                    alertItem = AlertContext.invalidResponse
+                }
+                
+                isLoading = true
             }
         }
     }

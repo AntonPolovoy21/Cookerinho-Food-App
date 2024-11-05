@@ -2,7 +2,7 @@
 //  DishDetailView.swift
 //  testing4
 //
-//  Created by Admin on 6.11.23.
+//  Created by Anton Polovoy on 6.11.24.
 //
 
 import SwiftUI
@@ -16,9 +16,18 @@ struct DishDetailView: View {
     
     var body: some View {
         VStack {
-            CookerinhoRemoteImage(urlString: dish.imageURL)
-                .scaledToFill()
-                .frame(width: 320, height: 240)
+            AsyncImage(url: URL(string: dish.imageURL)) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 320, height: 240)
+            } placeholder: {
+                Image("food-placeholder")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 320, height: 240)
+            }
+            
             VStack {
                 Text(dish.name)
                     .bold()

@@ -2,7 +2,7 @@
 //  AccountView.swift
 //  testing4
 //
-//  Created by Admin on 2.11.23.
+//  Created by Anton Polovoy on 2.11.24.
 //
 
 import SwiftUI
@@ -10,20 +10,40 @@ import SwiftUI
 struct AccountView: View {
     
     @StateObject private var viewModel = AccountViewModel()
+    @FocusState private var focusedField: TextFieldType?
+    
+    enum TextFieldType {
+        case firstName, lastName, email
+    }
     
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Personal info")) {
                     TextField("First Name", text: $viewModel.user.firstName)
+                        .focused($focusedField, equals: .firstName)
+                        .onSubmit() { focusedField = .lastName }
+                        .submitLabel(.next)
+                    
                     TextField("Last Name", text: $viewModel.user.lastName)
+                        .focused($focusedField, equals: .lastName)
+                        .onSubmit() { focusedField = .email }
+                        .submitLabel(.next)
+                    
                     TextField("Email", text: $viewModel.user.email)
+                        .focused($focusedField, equals: .email)
+                        .onSubmit() { focusedField = nil }
+                        .submitLabel(.done)
                         .keyboardType(.emailAddress)
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
-                    DatePicker("Birthday",
-                               selection: $viewModel.user.birthDate,
-                               displayedComponents: .date)
+                    
+                    DatePicker(
+                        "Birth date",
+                        selection: $viewModel.user.birthDate,
+                        in: Date().oneHundredTenYearsAgo...Date().sixYearsAgo,
+                        displayedComponents: .date
+                    )
                     .tint(.accent)
                     
                     Button {
@@ -41,6 +61,11 @@ struct AccountView: View {
             }
             .onAppear {
                 viewModel.retrieveUser()
+            }
+            .toolbar{
+                ToolbarItemGroup(placement: .keyboard) {
+                    Button("Dismiss") { focusedField = nil }
+                }
             }
             .navigationTitle("🤣 Account")
         }

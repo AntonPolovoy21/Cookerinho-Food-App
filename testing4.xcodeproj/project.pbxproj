@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10AEBDC62CDA4B4300EB243A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AEBDC52CDA4B4300EB243A /* Date+Ext.swift */; };
 		845913082AFBF9AA00DECA16 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845913072AFBF9AA00DECA16 /* User.swift */; };
 		8459130B2AFC077D00DECA16 /* OrderEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459130A2AFC077D00DECA16 /* OrderEmptyStateView.swift */; };
 		8459130D2AFC498500DECA16 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459130C2AFC498500DECA16 /* Order.swift */; };
@@ -17,7 +18,6 @@
 		84C5571A2AF576E700B872C5 /* DishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C557192AF576E700B872C5 /* DishListViewModel.swift */; };
 		84C5571C2AF8087500B872C5 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5571B2AF8087500B872C5 /* Alert.swift */; };
 		84C5571E2AF80D3800B872C5 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5571D2AF80D3800B872C5 /* LoadingView.swift */; };
-		84C557222AF817C200B872C5 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C557212AF817C200B872C5 /* RemoteImage.swift */; };
 		84C557302AF925B100B872C5 /* DishDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5572F2AF925B100B872C5 /* DishDetailView.swift */; };
 		84C557332AF955C500B872C5 /* MyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C557322AF955C500B872C5 /* MyButtonView.swift */; };
 		84C557352AF9571800B872C5 /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C557342AF9571800B872C5 /* XDismissButton.swift */; };
@@ -33,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10AEBDC52CDA4B4300EB243A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		845913072AFBF9AA00DECA16 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8459130A2AFC077D00DECA16 /* OrderEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEmptyStateView.swift; sourceTree = "<group>"; };
 		8459130C2AFC498500DECA16 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -43,7 +44,6 @@
 		84C557192AF576E700B872C5 /* DishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListViewModel.swift; sourceTree = "<group>"; };
 		84C5571B2AF8087500B872C5 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		84C5571D2AF80D3800B872C5 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		84C557212AF817C200B872C5 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		84C5572F2AF925B100B872C5 /* DishDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishDetailView.swift; sourceTree = "<group>"; };
 		84C557322AF955C500B872C5 /* MyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButtonView.swift; sourceTree = "<group>"; };
 		84C557342AF9571800B872C5 /* XDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
@@ -157,19 +157,18 @@
 			children = (
 				845913092AFC075900DECA16 /* Empty States */,
 				84C557312AF955AE00B872C5 /* Buttons */,
-				84C5572E2AF923F900B872C5 /* Image */,
 				84C5572D2AF923B800B872C5 /* Cells */,
-				84C5572C2AF923AB00B872C5 /* UIKit Components */,
+				84C5572C2AF923AB00B872C5 /* LoadingView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		84C5572C2AF923AB00B872C5 /* UIKit Components */ = {
+		84C5572C2AF923AB00B872C5 /* LoadingView */ = {
 			isa = PBXGroup;
 			children = (
 				84C5571D2AF80D3800B872C5 /* LoadingView.swift */,
 			);
-			path = "UIKit Components";
+			path = LoadingView;
 			sourceTree = "<group>";
 		};
 		84C5572D2AF923B800B872C5 /* Cells */ = {
@@ -178,14 +177,6 @@
 				84C557132AF5636500B872C5 /* DishCellView.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		84C5572E2AF923F900B872C5 /* Image */ = {
-			isa = PBXGroup;
-			children = (
-				84C557212AF817C200B872C5 /* RemoteImage.swift */,
-			);
-			path = Image;
 			sourceTree = "<group>";
 		};
 		84C557312AF955AE00B872C5 /* Buttons */ = {
@@ -201,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				84C557392AF963CC00B872C5 /* String+Ext.swift */,
+				10AEBDC52CDA4B4300EB243A /* Date+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -324,9 +316,9 @@
 				84C557182AF56C6100B872C5 /* MyError.swift in Sources */,
 				84E236362AF3C42900AEE5F1 /* CookerinhoTabViews.swift in Sources */,
 				84C5571E2AF80D3800B872C5 /* LoadingView.swift in Sources */,
-				84C557222AF817C200B872C5 /* RemoteImage.swift in Sources */,
 				84C557122AF55FDA00B872C5 /* Dish.swift in Sources */,
 				84C557162AF56B2B00B872C5 /* NetworkManager.swift in Sources */,
+				10AEBDC62CDA4B4300EB243A /* Date+Ext.swift in Sources */,
 				84E236342AF3C42900AEE5F1 /* testing4App.swift in Sources */,
 				84C5571C2AF8087500B872C5 /* Alert.swift in Sources */,
 				84E236462AF3C8E100AEE5F1 /* AccountView.swift in Sources */,
@@ -471,11 +463,12 @@
 				DEVELOPMENT_TEAM = XT35QKLZX4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Cookerinho;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -484,9 +477,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Polovoy.testing4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -501,11 +497,12 @@
 				DEVELOPMENT_TEAM = XT35QKLZX4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Cookerinho;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -514,9 +511,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Polovoy.testing4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

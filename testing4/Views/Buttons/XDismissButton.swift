@@ -2,7 +2,7 @@
 //  XDismissButton.swift
 //  testing4
 //
-//  Created by Admin on 6.11.23.
+//  Created by Anton Polovoy on 6.11.24.
 //
 
 import SwiftUI

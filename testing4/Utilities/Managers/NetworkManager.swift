@@ -2,7 +2,7 @@
 //  NetworkManager.swift
 //  testing4
 //
-//  Created by Admin on 3.11.23.
+//  Created by Anton Polovoy on 3.11.24.
 //
 
 import Foundation
@@ -17,65 +17,19 @@ final class NetworkManager {
     
     private init() {}
     
-    func getAppetizers (completed: @escaping (Result<[Dish], MyError>) -> Void)  {
+    func getDishesCall() async throws -> [Dish] {
         guard let url = Foundation.URL(string: URL) else {
-            completed(.failure(.invalidURL))
-            return
+            throw MyError.invalidURL
         }
         
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
-            if let _ = error {
-                completed(.failure(.unableToComplete))
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(.failure(.invalidResponse))
-                return
-            }
-            
-            guard let data = data else {
-                completed(.failure(.invalidData))
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let decoded = try decoder.decode(DishesRequest.self, from: data)
-                completed(.success(decoded.request))
-            }
-            catch {
-                completed(.failure(.invalidData))
-            }
+        let (data, _) = try await URLSession.shared.data(from: url)
+        
+        do {
+            let decoder = JSONDecoder()
+            return try decoder.decode(DishesRequest.self, from: data).request
         }
-        
-        task.resume()
-    }
-    
-    func downloadImage(fromURLString urlString: String, completed: @escaping (UIImage?) -> Void) {
-        
-        let cacheKey = NSString(string: urlString)
-        
-        if let image = cache.object(forKey: cacheKey) {
-            completed(image)
-            return
+        catch {
+            throw MyError.invalidData
         }
-        
-        guard let url = Foundation.URL(string: urlString) else {
-            completed(nil)
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
-            
-            guard let data = data, let image = UIImage(data: data) else {
-                completed(nil)
-                return
-            }
-            
-            self.cache.setObject(image, forKey: cacheKey)
-        }
-        
-        task.resume()
     }
 }

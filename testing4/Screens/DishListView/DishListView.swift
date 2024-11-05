@@ -2,7 +2,7 @@
 //  MenuView.swift
 //  testing4
 //
-//  Created by Admin on 2.11.23.
+//  Created by Anton Polovoy on 2.11.24.
 //
 
 import SwiftUI
@@ -29,10 +29,9 @@ struct DishListView: View {
                 .disabled(viewModel.isShowingDetail)
             }
             .blur(radius: (viewModel.isShowingDetail ? 10 : 0))
-            .onAppear {
+            .task {
                 viewModel.getDishes()
             }
-            
             if viewModel.isShowingDetail {
                 DishDetailView(isShowingDetail: $viewModel.isShowingDetail,
                                dish: viewModel.sellectedDish ?? MockData.sampleDish)
