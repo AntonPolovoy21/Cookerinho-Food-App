@@ -8,13 +8,21 @@
 import SwiftUI
 
 @main
-struct testing4App: App {
+struct Testing4App: App {
     
     var order = Order()
     
+    @State private var isLoggedIn: Bool = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+
     var body: some Scene {
         WindowGroup {
-            CookerinhoTabViews().environmentObject(order)
+            NavigationView {
+                if isLoggedIn {
+                    CookerinhoTabViews().environmentObject(order)
+                } else {
+                    LoginView(isLoggedIn: $isLoggedIn)
+                }
+            }
         }
     }
 }

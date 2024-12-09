@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10288D1A2D07724600EF09CE /* LoginUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10288D192D07724600EF09CE /* LoginUserView.swift */; };
+		10288D1C2D0775B300EF09CE /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10288D1B2D0775B300EF09CE /* RegisterUserView.swift */; };
 		10AEBDC62CDA4B4300EB243A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AEBDC52CDA4B4300EB243A /* Date+Ext.swift */; };
 		845913082AFBF9AA00DECA16 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845913072AFBF9AA00DECA16 /* User.swift */; };
 		8459130B2AFC077D00DECA16 /* OrderEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459130A2AFC077D00DECA16 /* OrderEmptyStateView.swift */; };
@@ -33,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10288D192D07724600EF09CE /* LoginUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserView.swift; sourceTree = "<group>"; };
+		10288D1B2D0775B300EF09CE /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
 		10AEBDC52CDA4B4300EB243A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		845913072AFBF9AA00DECA16 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8459130A2AFC077D00DECA16 /* OrderEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEmptyStateView.swift; sourceTree = "<group>"; };
@@ -70,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10288D182D07723100EF09CE /* AppLoginViews */ = {
+			isa = PBXGroup;
+			children = (
+				10288D192D07724600EF09CE /* LoginUserView.swift */,
+				10288D1B2D0775B300EF09CE /* RegisterUserView.swift */,
+			);
+			path = AppLoginViews;
+			sourceTree = "<group>";
+		};
 		845913092AFC075900DECA16 /* Empty States */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				84E236352AF3C42900AEE5F1 /* CookerinhoTabViews.swift */,
+				10288D182D07723100EF09CE /* AppLoginViews */,
 				84C557242AF9223B00B872C5 /* DishListView */,
 				84C557252AF9225500B872C5 /* AccountView */,
 				84C557262AF9226100B872C5 /* OrderView */,
@@ -312,6 +326,7 @@
 				84C557332AF955C500B872C5 /* MyButtonView.swift in Sources */,
 				84E236422AF3C61B00AEE5F1 /* OrderView.swift in Sources */,
 				84E236442AF3C7BC00AEE5F1 /* DishListView.swift in Sources */,
+				10288D1C2D0775B300EF09CE /* RegisterUserView.swift in Sources */,
 				8459130D2AFC498500DECA16 /* Order.swift in Sources */,
 				84C557182AF56C6100B872C5 /* MyError.swift in Sources */,
 				84E236362AF3C42900AEE5F1 /* CookerinhoTabViews.swift in Sources */,
@@ -325,6 +340,7 @@
 				84C557142AF5636500B872C5 /* DishCellView.swift in Sources */,
 				84C557372AF960CE00B872C5 /* AccountViewModel.swift in Sources */,
 				84C557352AF9571800B872C5 /* XDismissButton.swift in Sources */,
+				10288D1A2D07724600EF09CE /* LoginUserView.swift in Sources */,
 				845913082AFBF9AA00DECA16 /* User.swift in Sources */,
 				8459130B2AFC077D00DECA16 /* OrderEmptyStateView.swift in Sources */,
 			);
