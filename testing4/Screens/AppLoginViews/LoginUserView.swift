@@ -7,90 +7,140 @@
 
 import SwiftUI
 
-struct LoginView: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @Binding var isLoggedIn: Bool
+struct LoginView : View {
     
-    @State private var errorMessage: String?
+    @State private var email = ""
+    @State private var password = ""
+    
+    @State private var show = false
+    
+    @Binding var isLoggedIn: Bool
     @State private var isLoginSuccessful: Bool = false
     
-    var body: some View {
-        VStack {
-            TextField("Email", text: $email)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-                .keyboardType(.emailAddress)
+    @State private var showAlert: Bool = false
+    @State private var alertMessage: String = ""
+    
+    var body : some View{
+        
+        ZStack{
             
-            SecureField("Password", text: $password)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
+            NavigationLink(destination: Register(show: self.$show, isRegistrationSuccessful: $isLoggedIn), isActive: self.$show) {
+                
+                Text("")
+            }
             
-            Button(action: {
-                loginUser()
-            }) {
-                Text("Login")
+            VStack{
+                
+                HStack{
+                    
+                    Spacer()
+                    
+                    Image("shape")
+                    
+                }
+                
+                VStack{
+                    
+                    Image("logo")
+                    Text("Cookerinho")
+                        .font(.system(size: 20, weight: .regular, design: .monospaced))
+                    
+                }.offset(y: -122)
+                    .padding(.bottom,-132)
+                
+                VStack(spacing: 20){
+                    
+                    Text("Hello").font(.title).fontWeight(.bold).foregroundStyle(.black)
+                    
+                    Text("Sign Into Your Account").fontWeight(.bold).foregroundStyle(.black)
+                    
+                    CustomTF(value: self.$email, isEmail: true)
+                    
+                    CustomTF(value: self.$password, isEmail: false)
+                    
+                    Button(action: {
+                        loginUser()
+                    }) {
+                        
+                        Text("Login")
+                            .frame(width: UIScreen.main.bounds.width - 100)
+                            .padding(.vertical)
+                            .foregroundColor(.white)
+                        
+                    }.background(Color("Color1"))
+                        .clipShape(Capsule())
+                    
+                }.padding()
+                    .background(Color.white)
+                    .cornerRadius(5)
                     .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-            }
-            .padding()
-            
-            if let errorMessage = errorMessage {
-                Text(errorMessage)
-                    .foregroundColor(.red)
-            }
-            
-            if isLoginSuccessful {
-                Text("Login successful!")
-                    .foregroundColor(.green)
-            }
-            
-            // Registration Button
-            NavigationLink(destination: RegistrationView()) {
-                Text("Register")
-                    .foregroundColor(.blue)
-                    .padding()
-            }
+                
+                HStack{
+                    
+                    Text("Don't Have an Account ?")
+                    
+                    Button(action: {
+                        
+                        self.show.toggle()
+                        
+                    }) {
+                        
+                        Text("Register Now").foregroundColor(Color("Color1"))
+                    }
+                    
+                }.padding(.top)
+                
+                Spacer(minLength: 0)
+                
+            }.edgesIgnoringSafeArea(.top)
+                .background(Color("Color").edgesIgnoringSafeArea(.all))
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+                }
         }
-        .padding()
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
     
     func loginUser() {
         guard !email.isEmpty, !password.isEmpty else {
-            errorMessage = "Please enter both email and password."
+            alertMessage = "Please enter both email and password."
+            showAlert = true
             return
         }
         
         guard let url = URL(string: "http://localhost:1111/userLogin") else {
-            errorMessage = "Invalid URL."
+            alertMessage = "Invalid URL."
+            showAlert = true
             return
         }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+
         let loginData = ["email": email, "password": password]
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: loginData, options: [])
         } catch {
-            errorMessage = "Error creating request body."
+            alertMessage = "Error creating request body."
+            showAlert = true
             return
         }
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 DispatchQueue.main.async {
-                    errorMessage = "Network error: \(error.localizedDescription)"
+                    alertMessage = "Network error: \(error.localizedDescription)"
+                    showAlert = true
                 }
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse else {
                 DispatchQueue.main.async {
-                    errorMessage = "Invalid response."
+                    alertMessage = "Invalid response."
+                    showAlert = true
                 }
                 return
             }
@@ -98,14 +148,13 @@ struct LoginView: View {
             if httpResponse.statusCode == 200 {
                 DispatchQueue.main.async {
                     isLoginSuccessful = true
-                    errorMessage = nil
-                    isLoggedIn = true // Update the logged-in state
-                    UserDefaults.standard.set(true, forKey: "isUserLoggedIn") // Save to UserDefaults
+                    isLoggedIn = true
+                    UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
                 }
             } else {
                 DispatchQueue.main.async {
-                    errorMessage = "Login failed! Check your credentials!"
-                    isLoginSuccessful = false
+                    alertMessage = "Login failed! Check your credentials!"
+                    showAlert = true
                 }
             }
         }

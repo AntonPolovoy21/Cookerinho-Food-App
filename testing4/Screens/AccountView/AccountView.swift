@@ -27,11 +27,6 @@ struct AccountView: View {
                     
                     TextField("Last Name", text: $viewModel.user.lastName)
                         .focused($focusedField, equals: .lastName)
-                        .onSubmit() { focusedField = .email }
-                        .submitLabel(.next)
-                    
-                    TextField("Email", text: $viewModel.user.email)
-                        .focused($focusedField, equals: .email)
                         .onSubmit() { focusedField = nil }
                         .submitLabel(.done)
                         .keyboardType(.emailAddress)

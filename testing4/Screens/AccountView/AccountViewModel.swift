@@ -39,7 +39,7 @@ final class AccountViewModel: ObservableObject {
         }
     }
     
-    var isValidForm:Bool {
+    var isValidForm: Bool {
         guard !user.firstName.isEmpty && !user.lastName.isEmpty && !user.email.isEmpty else {
             alertItem = AlertContext.emptyFields
             return false

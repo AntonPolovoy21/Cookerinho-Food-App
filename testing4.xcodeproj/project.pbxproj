@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		10288D1A2D07724600EF09CE /* LoginUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10288D192D07724600EF09CE /* LoginUserView.swift */; };
 		10288D1C2D0775B300EF09CE /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10288D1B2D0775B300EF09CE /* RegisterUserView.swift */; };
+		106E78C42D0B7CB100D79A58 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E78C32D0B7CB100D79A58 /* CustomTextField.swift */; };
 		10AEBDC62CDA4B4300EB243A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AEBDC52CDA4B4300EB243A /* Date+Ext.swift */; };
 		845913082AFBF9AA00DECA16 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845913072AFBF9AA00DECA16 /* User.swift */; };
 		8459130B2AFC077D00DECA16 /* OrderEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459130A2AFC077D00DECA16 /* OrderEmptyStateView.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		10288D192D07724600EF09CE /* LoginUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserView.swift; sourceTree = "<group>"; };
 		10288D1B2D0775B300EF09CE /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
+		106E78C32D0B7CB100D79A58 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		10AEBDC52CDA4B4300EB243A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		845913072AFBF9AA00DECA16 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8459130A2AFC077D00DECA16 /* OrderEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEmptyStateView.swift; sourceTree = "<group>"; };
@@ -81,6 +83,14 @@
 				10288D1B2D0775B300EF09CE /* RegisterUserView.swift */,
 			);
 			path = AppLoginViews;
+			sourceTree = "<group>";
+		};
+		106E78C22D0B7C9A00D79A58 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				106E78C32D0B7CB100D79A58 /* CustomTextField.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		845913092AFC075900DECA16 /* Empty States */ = {
@@ -169,6 +179,7 @@
 		84C5572B2AF923A500B872C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				106E78C22D0B7C9A00D79A58 /* CustomViews */,
 				845913092AFC075900DECA16 /* Empty States */,
 				84C557312AF955AE00B872C5 /* Buttons */,
 				84C5572D2AF923B800B872C5 /* Cells */,
@@ -340,6 +351,7 @@
 				84C557142AF5636500B872C5 /* DishCellView.swift in Sources */,
 				84C557372AF960CE00B872C5 /* AccountViewModel.swift in Sources */,
 				84C557352AF9571800B872C5 /* XDismissButton.swift in Sources */,
+				106E78C42D0B7CB100D79A58 /* CustomTextField.swift in Sources */,
 				10288D1A2D07724600EF09CE /* LoginUserView.swift in Sources */,
 				845913082AFBF9AA00DECA16 /* User.swift in Sources */,
 				8459130B2AFC077D00DECA16 /* OrderEmptyStateView.swift in Sources */,
