@@ -10,6 +10,9 @@
 		10288D1A2D07724600EF09CE /* LoginUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10288D192D07724600EF09CE /* LoginUserView.swift */; };
 		10288D1C2D0775B300EF09CE /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10288D1B2D0775B300EF09CE /* RegisterUserView.swift */; };
 		106E78C42D0B7CB100D79A58 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E78C32D0B7CB100D79A58 /* CustomTextField.swift */; };
+		108DD63E2D650E8000D18BA6 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DD63D2D650E8000D18BA6 /* CustomAlert.swift */; };
+		108DD6402D6523E400D18BA6 /* SymbolEffect+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DD63F2D6523E400D18BA6 /* SymbolEffect+Ext.swift */; };
+		108DD6422D6524FA00D18BA6 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DD6412D6524FA00D18BA6 /* TestView.swift */; };
 		10AEBDC62CDA4B4300EB243A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AEBDC52CDA4B4300EB243A /* Date+Ext.swift */; };
 		845913082AFBF9AA00DECA16 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845913072AFBF9AA00DECA16 /* User.swift */; };
 		8459130B2AFC077D00DECA16 /* OrderEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459130A2AFC077D00DECA16 /* OrderEmptyStateView.swift */; };
@@ -39,6 +42,9 @@
 		10288D192D07724600EF09CE /* LoginUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserView.swift; sourceTree = "<group>"; };
 		10288D1B2D0775B300EF09CE /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
 		106E78C32D0B7CB100D79A58 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		108DD63D2D650E8000D18BA6 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		108DD63F2D6523E400D18BA6 /* SymbolEffect+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SymbolEffect+Ext.swift"; sourceTree = "<group>"; };
+		108DD6412D6524FA00D18BA6 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		10AEBDC52CDA4B4300EB243A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		845913072AFBF9AA00DECA16 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8459130A2AFC077D00DECA16 /* OrderEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEmptyStateView.swift; sourceTree = "<group>"; };
@@ -89,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				106E78C32D0B7CB100D79A58 /* CustomTextField.swift */,
+				108DD63D2D650E8000D18BA6 /* CustomAlert.swift */,
+				108DD6412D6524FA00D18BA6 /* TestView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -218,6 +226,7 @@
 			children = (
 				84C557392AF963CC00B872C5 /* String+Ext.swift */,
 				10AEBDC52CDA4B4300EB243A /* Date+Ext.swift */,
+				108DD63F2D6523E400D18BA6 /* SymbolEffect+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -340,6 +349,8 @@
 				10288D1C2D0775B300EF09CE /* RegisterUserView.swift in Sources */,
 				8459130D2AFC498500DECA16 /* Order.swift in Sources */,
 				84C557182AF56C6100B872C5 /* MyError.swift in Sources */,
+				108DD63E2D650E8000D18BA6 /* CustomAlert.swift in Sources */,
+				108DD6402D6523E400D18BA6 /* SymbolEffect+Ext.swift in Sources */,
 				84E236362AF3C42900AEE5F1 /* CookerinhoTabViews.swift in Sources */,
 				84C5571E2AF80D3800B872C5 /* LoadingView.swift in Sources */,
 				84C557122AF55FDA00B872C5 /* Dish.swift in Sources */,
@@ -353,6 +364,7 @@
 				84C557352AF9571800B872C5 /* XDismissButton.swift in Sources */,
 				106E78C42D0B7CB100D79A58 /* CustomTextField.swift in Sources */,
 				10288D1A2D07724600EF09CE /* LoginUserView.swift in Sources */,
+				108DD6422D6524FA00D18BA6 /* TestView.swift in Sources */,
 				845913082AFBF9AA00DECA16 /* User.swift in Sources */,
 				8459130B2AFC077D00DECA16 /* OrderEmptyStateView.swift in Sources */,
 			);
@@ -497,7 +509,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -508,6 +520,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -531,7 +544,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -542,6 +555,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -11,7 +11,7 @@ import RegexBuilder
 extension String {
     
     var isValidEmail: Bool {
-        let emailRealt = Regex {
+        let emailRegex = Regex {
             OneOrMore {
                 CharacterClass(
                     .anyOf("._%+-"),
@@ -38,6 +38,6 @@ extension String {
             }
         }
         
-        return self.wholeMatch(of: emailRealt) != nil
+        return self.wholeMatch(of: emailRegex) != nil
     }
 }

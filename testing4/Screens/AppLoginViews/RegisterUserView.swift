@@ -91,30 +91,33 @@ struct Register : View {
                 
             }.padding(20)
             
+            CustomAlertView(wrappedState: $showAlert, withDetails: $alertMessage, type: .error)
         }.navigationBarTitle("")
             .navigationBarHidden(true)
-            .alert(isPresented: $showAlert) {
-                Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
-            }
+        
     }
     
     func registerUser() {
         guard !firstName.isEmpty, !lastName.isEmpty, !email.isEmpty, !password.isEmpty else {
-            alertMessage = "Please fill in all fields."
-            showAlert = true
+            withAnimation {
+                alertMessage = "Please fill in all fields."
+                showAlert = true
+            }
             return
         }
-
+        
         guard let url = URL(string: "http://localhost:1111/createUser") else {
-            alertMessage = "Invalid URL."
-            showAlert = true
+            withAnimation {
+                alertMessage = "Invalid URL."
+                showAlert = true
+            }
             return
         }
-
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        
         let userData = [
             "firstName": firstName,
             "lastName": lastName,
@@ -125,28 +128,34 @@ struct Register : View {
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: userData, options: [])
         } catch {
-            alertMessage = "Error creating request body."
-            showAlert = true
+            withAnimation {
+                alertMessage = "Error creating request body."
+                showAlert = true
+            }
             return
         }
-
+        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 DispatchQueue.main.async {
-                    alertMessage = "Network error: \(error.localizedDescription)"
-                    showAlert = true
+                    withAnimation {
+                        alertMessage = "Network error: \(error.localizedDescription)"
+                        showAlert = true
+                    }
                 }
                 return
             }
-
+            
             guard let httpResponse = response as? HTTPURLResponse else {
                 DispatchQueue.main.async {
-                    alertMessage = "Invalid response."
-                    showAlert = true
+                    withAnimation {
+                        alertMessage = "Invalid response."
+                        showAlert = true
+                    }
                 }
                 return
             }
-
+            
             if httpResponse.statusCode == 200 {
                 DispatchQueue.main.async {
                     isRegistrationSuccessful = true
@@ -155,13 +164,15 @@ struct Register : View {
                 }
             } else {
                 DispatchQueue.main.async {
-                    alertMessage = "Registration failed! Please try again."
-                    showAlert = true
-                    isRegistrationSuccessful = false
+                    withAnimation {
+                        alertMessage = "Registration failed! Please try again."
+                        showAlert = true
+                        isRegistrationSuccessful = false
+                    }
                 }
             }
         }
-
+        
         task.resume()
     }
 }

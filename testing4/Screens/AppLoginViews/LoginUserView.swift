@@ -94,9 +94,8 @@ struct LoginView : View {
                 
             }.edgesIgnoringSafeArea(.top)
                 .background(Color("Color").edgesIgnoringSafeArea(.all))
-                .alert(isPresented: $showAlert) {
-                    Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
-                }
+            
+            CustomAlertView(wrappedState: $showAlert, withDetails: $alertMessage, type: .error)
         }
         .navigationBarTitle("")
         .navigationBarHidden(true)
@@ -104,14 +103,30 @@ struct LoginView : View {
     
     func loginUser() {
         guard !email.isEmpty, !password.isEmpty else {
+            withAnimation {
+                withAnimation {
+                
+            }
+            withAnimation {
+                
+            }
             alertMessage = "Please enter both email and password."
-            showAlert = true
+                showAlert = true
+            }
             return
         }
         
         guard let url = URL(string: "http://localhost:1111/userLogin") else {
+            withAnimation {
+                withAnimation {
+                
+            }
+            withAnimation {
+                
+            }
             alertMessage = "Invalid URL."
-            showAlert = true
+                showAlert = true
+            }
             return
         }
         
@@ -123,24 +138,48 @@ struct LoginView : View {
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: loginData, options: [])
         } catch {
+            withAnimation {
+                withAnimation {
+                
+            }
+            withAnimation {
+                
+            }
             alertMessage = "Error creating request body."
-            showAlert = true
+                showAlert = true
+            }
             return
         }
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 DispatchQueue.main.async {
-                    alertMessage = "Network error: \(error.localizedDescription)"
-                    showAlert = true
+                    withAnimation {
+                        withAnimation {
+                
+            }
+            withAnimation {
+                
+            }
+            alertMessage = "Network error: \(error.localizedDescription)"
+                        showAlert = true
+                    }
                 }
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse else {
                 DispatchQueue.main.async {
-                    alertMessage = "Invalid response."
-                    showAlert = true
+                    withAnimation {
+                        withAnimation {
+                
+            }
+            withAnimation {
+                
+            }
+            alertMessage = "Invalid response."
+                        showAlert = true
+                    }
                 }
                 return
             }
@@ -153,8 +192,16 @@ struct LoginView : View {
                 }
             } else {
                 DispatchQueue.main.async {
-                    alertMessage = "Login failed! Check your credentials!"
-                    showAlert = true
+                    withAnimation {
+                        withAnimation {
+                
+            }
+            withAnimation {
+                
+            }
+            alertMessage = "Login failed! Check your credentials!"
+                        showAlert = true
+                    }
                 }
             }
         }
