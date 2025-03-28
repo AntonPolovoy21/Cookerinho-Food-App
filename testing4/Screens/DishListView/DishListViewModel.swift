@@ -20,29 +20,32 @@ import SwiftUI
         
         Task {
             do {
-                dishes = try await NetworkManager.shared.getDishesCall()
-                isLoading = false
-            }
-            catch {
-                
-                if let thisError = error as? MyError {
-                    switch thisError {
-                    case .invalidURL:
-                        alertItem = AlertContext.invalidURL
-                    case .invalidResponse:
-                        alertItem = AlertContext.invalidResponse
-                    case .invalidData:
-                        alertItem = AlertContext.invalidData
-                    case .unableToComplete:
-                        alertItem = AlertContext.unableToComplete
-                    }
+                let firebaseFactory = FirebaseFactory()
+                firebaseFactory.fetchDishes { dishesFromDB in
+                    self.dishes = dishesFromDB
+                    self.isLoading = false
                 }
-                else {
-                    alertItem = AlertContext.invalidResponse
-                }
-                
-                isLoading = true
             }
+//            catch {
+//                
+//                if let thisError = error as? MyError {
+//                    switch thisError {
+//                    case .invalidURL:
+//                        alertItem = AlertContext.invalidURL
+//                    case .invalidResponse:
+//                        alertItem = AlertContext.invalidResponse
+//                    case .invalidData:
+//                        alertItem = AlertContext.invalidData
+//                    case .unableToComplete:
+//                        alertItem = AlertContext.unableToComplete
+//                    }
+//                }
+//                else {
+//                    alertItem = AlertContext.invalidResponse
+//                }
+//                
+//                isLoading = true
+//            }
         }
     }
 }

@@ -13,11 +13,12 @@ struct Testing4App: App {
     var order = Order()
     
     @State private var isLoggedIn: Bool = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
-
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                if isLoggedIn {
+                if !isLoggedIn {
                     CookerinhoTabViews().environmentObject(order)
                 } else {
                     LoginView(isLoggedIn: $isLoggedIn)

@@ -13,19 +13,7 @@ struct DishCellView: View {
     
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: dish.imageURL)) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 120, height: 90)
-                    .cornerRadius(8)
-            } placeholder: {
-                Image("food-placeholder")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 120, height: 90)
-                    .cornerRadius(8)
-            }
+            FirebaseImageSmall(id: dish.imageURL)
             
             VStack(alignment: .leading, spacing: 5) {
                 Text(dish.name)

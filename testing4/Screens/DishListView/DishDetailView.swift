@@ -16,17 +16,7 @@ struct DishDetailView: View {
     
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: dish.imageURL)) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 320, height: 240)
-            } placeholder: {
-                Image("food-placeholder")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 320, height: 240)
-            }
+            FirebaseImageWide(id: dish.imageURL)
             
             VStack {
                 Text(dish.name)
