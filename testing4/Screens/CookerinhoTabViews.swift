@@ -11,23 +11,35 @@ struct CookerinhoTabViews: View {
     
     @EnvironmentObject var order: Order
     
+    @Binding var isLoggedIn: Bool
+    
     var body: some View {
         TabView {
             DishListView()
                 .tabItem {
-                    Label("Menu",
+                    Label("Меню",
                           systemImage: "house"
                     )
                 }
             AccountView()
                 .tabItem {
-                    Label("Account",
+                    Label("Профиль",
                           systemImage: "person.circle"
                     )
                 }
+                .overlay(alignment: .topTrailing) {
+                    Button{
+                        isLoggedIn = false
+                        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
+                        print(2323)
+                    } label: {
+                        XLogOutButton()
+                            .padding()
+                    }
+                }
             OrderView()
                 .tabItem {
-                    Label("Order",
+                    Label("Заказ",
                           systemImage: "list.bullet.clipboard"
                     )
                 }
@@ -37,5 +49,6 @@ struct CookerinhoTabViews: View {
 }
 
 #Preview {
-    CookerinhoTabViews()
+    CookerinhoTabViews(isLoggedIn: .constant(true))
+        .environmentObject(Order())
 }

@@ -28,21 +28,19 @@ struct DishDetailView: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .padding()
                 HStack(spacing: 40) {
-                    DishStatView(name: "Calories",
+                    DishStatView(name: "Калорий",
                                  amount: "\(dish.calories)")
-                    DishStatView(name: "Carbs",
-                                 amount: "\(dish.carbs) g")
-                    DishStatView(name: "Protein",
-                                 amount: "\(dish.protein) g")
+                    DishStatView(name: "Масса",
+                                 amount: "\(dish.grams) г")
                 }
             }
+            Spacer()
             Button {
                 isShowingDetail.toggle()
                 order.add(dish)
             } label: {
-                MyButtonView(title: "$\(dish.price, specifier: "%.2f") - Add To Order")
+                MyButtonView(title: "\(dish.price, specifier: "%.2f Br") - Добавить к заказу")
             }
-            .padding(.top, 40)
             Spacer()
         }
         .frame(width: 320, height: 525)

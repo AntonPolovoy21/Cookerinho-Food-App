@@ -28,7 +28,7 @@ struct OrderView: View {
                     Button {
                         
                     } label: {
-                        MyButtonView(title: "$\(order.orderPrice, specifier: "%.2f") - Place Order")
+                        MyButtonView(title: "\(order.orderPrice, specifier: "%.2f Br") - Сделать заказ")
                     }
                     .padding()
                 }
@@ -38,7 +38,7 @@ struct OrderView: View {
                 }
                 
             }
-            .navigationTitle("🧾 Order")
+            .navigationTitle("🧾 Заказ")
         }
     }
 }

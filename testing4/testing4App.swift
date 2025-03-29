@@ -19,7 +19,7 @@ struct Testing4App: App {
         WindowGroup {
             NavigationView {
                 if !isLoggedIn {
-                    CookerinhoTabViews().environmentObject(order)
+                    CookerinhoTabViews(isLoggedIn: $isLoggedIn).environmentObject(order)
                 } else {
                     LoginView(isLoggedIn: $isLoggedIn)
                 }

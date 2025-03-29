@@ -15,7 +15,7 @@ struct MyButtonView: View {
         Text(title)
             .bold()
             .font(.title3)
-            .frame(width: 280, height: 50)
+            .frame(width: 300, height: 50)
             .foregroundStyle(Color.white)
             .background(Color.accent)
             .cornerRadius(10)

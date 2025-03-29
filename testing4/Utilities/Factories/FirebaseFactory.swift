@@ -23,8 +23,7 @@ class FirebaseFactory {
                        let imageURL = some["imageURL"] as? String,
                        let id = some["id"] as? Int,
                        let calories = some["calories"] as? Int,
-                       let carbs = some["carbs"] as? Int,
-                       let protein = some["protein"] as? Int
+                       let grams = some["grams"] as? Int
                     {
                         let dish = Dish(price: price,
                                         name: name,
@@ -32,8 +31,7 @@ class FirebaseFactory {
                                         imageURL: imageURL,
                                         id: id,
                                         calories: calories,
-                                        carbs: carbs,
-                                        protein: protein)
+                                        grams: grams)
                         dishes.append(dish)
                     }
                 }

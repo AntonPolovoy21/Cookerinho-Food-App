@@ -18,6 +18,7 @@
 		107D54CE2D96F81A00A551FD /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 107D54CD2D96F81A00A551FD /* FirebaseDatabase */; };
 		107D54D02D97088B00A551FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D54CF2D97088600A551FD /* AppDelegate.swift */; };
 		107D54D32D9708C100A551FD /* FirebaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D54D22D9708B900A551FD /* FirebaseFactory.swift */; };
+		108BCD6F2D98315F00B7A456 /* XLogOutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108BCD6E2D98314B00B7A456 /* XLogOutButton.swift */; };
 		108DD63E2D650E8000D18BA6 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DD63D2D650E8000D18BA6 /* CustomAlert.swift */; };
 		108DD6402D6523E400D18BA6 /* SymbolEffect+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DD63F2D6523E400D18BA6 /* SymbolEffect+Ext.swift */; };
 		108DD6422D6524FA00D18BA6 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DD6412D6524FA00D18BA6 /* TestView.swift */; };
@@ -56,6 +57,7 @@
 		107D54CA2D96F22D00A551FD /* FirebaseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImage.swift; sourceTree = "<group>"; };
 		107D54CF2D97088600A551FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		107D54D22D9708B900A551FD /* FirebaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFactory.swift; sourceTree = "<group>"; };
+		108BCD6E2D98314B00B7A456 /* XLogOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLogOutButton.swift; sourceTree = "<group>"; };
 		108DD63D2D650E8000D18BA6 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		108DD63F2D6523E400D18BA6 /* SymbolEffect+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SymbolEffect+Ext.swift"; sourceTree = "<group>"; };
 		108DD6412D6524FA00D18BA6 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 		84C557312AF955AE00B872C5 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				108BCD6E2D98314B00B7A456 /* XLogOutButton.swift */,
 				84C557322AF955C500B872C5 /* MyButtonView.swift */,
 				84C557342AF9571800B872C5 /* XDismissButton.swift */,
 			);
@@ -414,6 +417,7 @@
 				108DD6422D6524FA00D18BA6 /* TestView.swift in Sources */,
 				845913082AFBF9AA00DECA16 /* User.swift in Sources */,
 				8459130B2AFC077D00DECA16 /* OrderEmptyStateView.swift in Sources */,
+				108BCD6F2D98315F00B7A456 /* XLogOutButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,7 +19,7 @@ struct OrderEmptyStateView: View {
                     .scaledToFit()
                     .frame(width: 300)
                 
-                Text("You have no items in your order.")
+                Text("Ваша корзина заказа пока пуста.")
                     .font(.title3)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)

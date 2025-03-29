@@ -18,7 +18,7 @@ struct DishCellView: View {
             VStack(alignment: .leading, spacing: 5) {
                 Text(dish.name)
                     .font(.title2)
-                Text("$\(dish.price, specifier: "%.2f")")
+                Text("\(dish.price, specifier: "%.2f Br")")
                     .fontWeight(.semibold)
                     .font(.callout)
                     .foregroundStyle(Color.secondary)
