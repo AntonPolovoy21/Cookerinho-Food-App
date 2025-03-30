@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct TestView: View {
     
     var body: some View {
-        ZStack {
-            FirebaseImageWide(id: "2024-08-25 00.09.29.jpg")
-        }
+        ProfilePhotoPickerView()
     }
 }
 

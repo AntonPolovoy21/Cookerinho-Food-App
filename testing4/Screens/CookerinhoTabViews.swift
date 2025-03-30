@@ -31,7 +31,6 @@ struct CookerinhoTabViews: View {
                     Button{
                         isLoggedIn = false
                         UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
-                        print(2323)
                     } label: {
                         XLogOutButton()
                             .padding()
