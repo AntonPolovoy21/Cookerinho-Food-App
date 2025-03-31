@@ -24,10 +24,10 @@ struct DishDetailView: View {
                         Button {
                             if !isFavourite {
                                 showAlert = true
-                                FavouritesManager.shared.saveDish(withId: dish.id)
+                                FavoritesManager.shared.saveDish(withId: dish.id)
                             }
                             else {
-                                FavouritesManager.shared.deleteDish(withId: dish.id)
+                                FavoritesManager.shared.deleteDish(withId: dish.id)
                             }
                             isFavourite.toggle()
                         } label: {
@@ -78,7 +78,7 @@ struct DishDetailView: View {
                 }
             }
             .onAppear {
-                isFavourite = FavouritesManager.shared.getFavouriteIds().contains(dish.id)
+                isFavourite = FavoritesManager.shared.getFavouriteIds().contains(dish.id)
             }
             
             CustomAlertView(wrappedState: $showAlert, withDetails: .constant("Блюдо \(dish.name) добавлено в избранное!"), type: .ok).padding(.bottom, 1)

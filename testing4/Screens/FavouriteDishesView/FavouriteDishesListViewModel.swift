@@ -13,7 +13,7 @@ import SwiftUI
     @Published var favouriteDishesList: [Dish] = []
     
     func add(_ dish: Dish) {
-        FavouritesManager.shared.saveDish(withId: dish.id)
+        FavoritesManager.shared.saveDish(withId: dish.id)
         favouriteDishesList.append(dish)
     }
     
@@ -21,7 +21,7 @@ import SwiftUI
         index.forEach { index in
             let dish = favouriteDishesList[index]
             
-            FavouritesManager.shared.deleteDish(withId: dish.id)
+            FavoritesManager.shared.deleteDish(withId: dish.id)
             
             favouriteDishesList.remove(at: index)
         }

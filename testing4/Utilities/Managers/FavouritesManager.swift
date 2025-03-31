@@ -1,5 +1,5 @@
 //
-//  FavouritesManager.swift
+//  FavoritesManager.swift
 //  testing4
 //
 //  Created by Alex Polovoy on 31.03.25.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class FavouritesManager {
-    static let shared = FavouritesManager()
+final class FavoritesManager {
+    static let shared = FavoritesManager()
     
     private init() { }
     

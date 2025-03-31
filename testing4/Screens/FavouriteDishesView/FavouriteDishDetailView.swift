@@ -14,8 +14,6 @@ struct FavouriteDishDetailView: View {
     @Binding var isShowingDetail: Bool
     let dish: Dish
     
-    @State private var showAlert: Bool = false
-    
     var body: some View {
         ZStack {
             VStack {
