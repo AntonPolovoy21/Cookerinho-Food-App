@@ -10,6 +10,7 @@ import SwiftUI
 struct DishListView: View {
     
     @StateObject private var viewModel = DishListViewModel()
+    @EnvironmentObject var listOfDishes: ListOfDishes
     
     var body: some View {
         ZStack {
@@ -19,7 +20,7 @@ struct DishListView: View {
                         DishCellView(dish: dish)
                             .listRowSeparator(.visible)
                             .onTapGesture {
-                                viewModel.sellectedDish = dish
+                                viewModel.selectedDish = dish
                                 viewModel.isShowingDetail.toggle()
                             }
                     }
@@ -30,11 +31,12 @@ struct DishListView: View {
             }
             .blur(radius: (viewModel.isShowingDetail ? 10 : 0))
             .task {
-                viewModel.getDishes()
+                getDishes()
             }
+            .focusedObject(self.listOfDishes)
             if viewModel.isShowingDetail {
                 DishDetailView(isShowingDetail: $viewModel.isShowingDetail,
-                               dish: viewModel.sellectedDish ?? MockData.sampleDish)
+                               dish: viewModel.selectedDish ?? MockData.sampleDish)
             }
             
             if viewModel.isLoading {
@@ -45,6 +47,22 @@ struct DishListView: View {
             Alert(title: alertItem.title,
                   message: alertItem.message,
                   dismissButton: alertItem.dismissButton)
+        }
+    }
+    
+    private func getDishes() {
+        if !listOfDishes.dishesItems.isEmpty { return }
+        viewModel.isLoading = true
+        
+        Task {
+            do {
+                let firebaseFactory = FirebaseFactory()
+                firebaseFactory.fetchDishes { dishesFromDB in
+                    self.listOfDishes.dishesItems = dishesFromDB
+                    self.viewModel.dishes = dishesFromDB
+                    self.viewModel.isLoading = false
+                }
+            }
         }
     }
 }

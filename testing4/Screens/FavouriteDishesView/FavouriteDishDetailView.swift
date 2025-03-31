@@ -1,13 +1,13 @@
 //
-//  DishDetailView.swift
+//  FavouriteDishDetailView.swift
 //  testing4
 //
-//  Created by Anton Polovoy on 6.11.24.
+//  Created by Alex Polovoy on 31.03.25.
 //
 
 import SwiftUI
 
-struct DishDetailView: View {
+struct FavouriteDishDetailView: View {
     
     @EnvironmentObject var order: Order
     @State var isFavourite = false
@@ -20,26 +20,6 @@ struct DishDetailView: View {
         ZStack {
             VStack {
                 FirebaseImageWide(id: dish.imageURL)
-                    .overlay(alignment: .bottomTrailing) {
-                        Button {
-                            if !isFavourite {
-                                showAlert = true
-                                FavouritesManager.shared.saveDish(withId: dish.id)
-                            }
-                            else {
-                                FavouritesManager.shared.deleteDish(withId: dish.id)
-                            }
-                            isFavourite.toggle()
-                        } label: {
-                            Image(systemName: !isFavourite ? "star" : "star.fill")
-                                .foregroundStyle(.accent)
-                                .frame(width: 40, height: 40)
-                                .imageScale(.large)
-                                .background(Color.white)
-                                .cornerRadius(20)
-                                .padding()
-                        }
-                    }
                 
                 VStack {
                     Text(dish.name)
@@ -77,34 +57,11 @@ struct DishDetailView: View {
                     XDismissButton()
                 }
             }
-            .onAppear {
-                isFavourite = FavouritesManager.shared.getFavouriteIds().contains(dish.id)
-            }
-            
-            CustomAlertView(wrappedState: $showAlert, withDetails: .constant("Блюдо \(dish.name) добавлено в избранное!"), type: .ok).padding(.bottom, 1)
-                .opacity(showAlert ? 1 : 0)
         }
     }
 }
 
 #Preview {
-    DishDetailView(isShowingDetail: .constant(true),
+    FavouriteDishDetailView(isShowingDetail: .constant(true),
                    dish: MockData.sampleDish)
-}
-
-struct DishStatView: View {
-    
-    let name: String
-    let amount: String
-    
-    var body: some View {
-        VStack(spacing: 5) {
-            Text(name)
-                .font(.callout)
-            Text(amount)
-                .italic()
-                .foregroundStyle(Color.gray)
-                .font(.headline)
-        }
-    }
 }

@@ -74,7 +74,9 @@ struct CustomAlert: View {
 
                         Text(details)
                             .opacity(0.5)
+                            .font(.system(size: 22))
                             .foregroundColor(.black)
+                            .multilineTextAlignment(.center)
                     }
                 }
                 .padding(.horizontal, 10)

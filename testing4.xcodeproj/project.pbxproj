@@ -23,6 +23,11 @@
 		108DD6402D6523E400D18BA6 /* SymbolEffect+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DD63F2D6523E400D18BA6 /* SymbolEffect+Ext.swift */; };
 		108DD6422D6524FA00D18BA6 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DD6412D6524FA00D18BA6 /* TestView.swift */; };
 		10AEBDC62CDA4B4300EB243A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AEBDC52CDA4B4300EB243A /* Date+Ext.swift */; };
+		10F012B52D9AC9400082952C /* FavouriteDishesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F012B42D9AC9400082952C /* FavouriteDishesListView.swift */; };
+		10F012B72D9AC9520082952C /* FavouriteDishesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F012B62D9AC9460082952C /* FavouriteDishesListViewModel.swift */; };
+		10F012B92D9ACDCD0082952C /* ListOfDishes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F012B82D9ACDC70082952C /* ListOfDishes.swift */; };
+		10F012BB2D9ADF930082952C /* FavouritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F012BA2D9ADF890082952C /* FavouritesManager.swift */; };
+		10F012BD2D9AEC200082952C /* FavouriteDishDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F012BC2D9AEC200082952C /* FavouriteDishDetailView.swift */; };
 		10F0719A2D994659005C9EFF /* ProfilePhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F071992D994659005C9EFF /* ProfilePhotoPickerView.swift */; };
 		845913082AFBF9AA00DECA16 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845913072AFBF9AA00DECA16 /* User.swift */; };
 		8459130B2AFC077D00DECA16 /* OrderEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459130A2AFC077D00DECA16 /* OrderEmptyStateView.swift */; };
@@ -63,6 +68,11 @@
 		108DD63F2D6523E400D18BA6 /* SymbolEffect+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SymbolEffect+Ext.swift"; sourceTree = "<group>"; };
 		108DD6412D6524FA00D18BA6 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		10AEBDC52CDA4B4300EB243A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		10F012B42D9AC9400082952C /* FavouriteDishesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteDishesListView.swift; sourceTree = "<group>"; };
+		10F012B62D9AC9460082952C /* FavouriteDishesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteDishesListViewModel.swift; sourceTree = "<group>"; };
+		10F012B82D9ACDC70082952C /* ListOfDishes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfDishes.swift; sourceTree = "<group>"; };
+		10F012BA2D9ADF890082952C /* FavouritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesManager.swift; sourceTree = "<group>"; };
+		10F012BC2D9AEC200082952C /* FavouriteDishDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteDishDetailView.swift; sourceTree = "<group>"; };
 		10F071992D994659005C9EFF /* ProfilePhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoPickerView.swift; sourceTree = "<group>"; };
 		845913072AFBF9AA00DECA16 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8459130A2AFC077D00DECA16 /* OrderEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEmptyStateView.swift; sourceTree = "<group>"; };
@@ -139,6 +149,16 @@
 			path = Factories;
 			sourceTree = "<group>";
 		};
+		10F012B32D9AC90B0082952C /* FavouriteDishesView */ = {
+			isa = PBXGroup;
+			children = (
+				10F012B62D9AC9460082952C /* FavouriteDishesListViewModel.swift */,
+				10F012B42D9AC9400082952C /* FavouriteDishesListView.swift */,
+				10F012BC2D9AEC200082952C /* FavouriteDishDetailView.swift */,
+			);
+			path = FavouriteDishesView;
+			sourceTree = "<group>";
+		};
 		845913092AFC075900DECA16 /* Empty States */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +170,7 @@
 		84C557232AF9223200B872C5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				10F012B32D9AC90B0082952C /* FavouriteDishesView */,
 				84E236352AF3C42900AEE5F1 /* CookerinhoTabViews.swift */,
 				10288D182D07723100EF09CE /* AppLoginViews */,
 				84C557242AF9223B00B872C5 /* DishListView */,
@@ -199,6 +220,7 @@
 		84C557282AF9233A00B872C5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				10F012BA2D9ADF890082952C /* FavouritesManager.swift */,
 				84C557152AF56B2B00B872C5 /* NetworkManager.swift */,
 			);
 			path = Managers;
@@ -217,6 +239,7 @@
 		84C5572A2AF9238700B872C5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				10F012B82D9ACDC70082952C /* ListOfDishes.swift */,
 				84C557112AF55FDA00B872C5 /* Dish.swift */,
 				845913072AFBF9AA00DECA16 /* User.swift */,
 				8459130C2AFC498500DECA16 /* Order.swift */,
@@ -394,6 +417,7 @@
 				84C557332AF955C500B872C5 /* MyButtonView.swift in Sources */,
 				107D54C22D96E2AA00A551FD /* CustomAlertType.swift in Sources */,
 				84E236422AF3C61B00AEE5F1 /* OrderView.swift in Sources */,
+				10F012B72D9AC9520082952C /* FavouriteDishesListViewModel.swift in Sources */,
 				84E236442AF3C7BC00AEE5F1 /* DishListView.swift in Sources */,
 				10288D1C2D0775B300EF09CE /* RegisterUserView.swift in Sources */,
 				8459130D2AFC498500DECA16 /* Order.swift in Sources */,
@@ -404,11 +428,13 @@
 				108DD6402D6523E400D18BA6 /* SymbolEffect+Ext.swift in Sources */,
 				84E236362AF3C42900AEE5F1 /* CookerinhoTabViews.swift in Sources */,
 				84C5571E2AF80D3800B872C5 /* LoadingView.swift in Sources */,
+				10F012BB2D9ADF930082952C /* FavouritesManager.swift in Sources */,
 				84C557122AF55FDA00B872C5 /* Dish.swift in Sources */,
 				84C557162AF56B2B00B872C5 /* NetworkManager.swift in Sources */,
 				10AEBDC62CDA4B4300EB243A /* Date+Ext.swift in Sources */,
 				84E236342AF3C42900AEE5F1 /* testing4App.swift in Sources */,
 				84C5571C2AF8087500B872C5 /* Alert.swift in Sources */,
+				10F012B52D9AC9400082952C /* FavouriteDishesListView.swift in Sources */,
 				84E236462AF3C8E100AEE5F1 /* AccountView.swift in Sources */,
 				107D54CB2D96F23200A551FD /* FirebaseImage.swift in Sources */,
 				84C557142AF5636500B872C5 /* DishCellView.swift in Sources */,
@@ -421,7 +447,9 @@
 				108DD6422D6524FA00D18BA6 /* TestView.swift in Sources */,
 				845913082AFBF9AA00DECA16 /* User.swift in Sources */,
 				8459130B2AFC077D00DECA16 /* OrderEmptyStateView.swift in Sources */,
+				10F012B92D9ACDCD0082952C /* ListOfDishes.swift in Sources */,
 				108BCD6F2D98315F00B7A456 /* XLogOutButton.swift in Sources */,
+				10F012BD2D9AEC200082952C /* FavouriteDishDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

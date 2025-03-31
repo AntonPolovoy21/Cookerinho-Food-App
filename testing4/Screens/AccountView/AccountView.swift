@@ -50,12 +50,6 @@ struct AccountView: View {
                             Text("Save changes")
                         }
                     }
-                    
-                    Section(header: Text("Requests")) {
-                        Toggle("Extra Napkins", isOn: $viewModel.user.isExtraNapkins)
-                        Toggle("Frequent Refills", isOn: $viewModel.user.frequentRefills)
-                    }
-                    .toggleStyle(SwitchToggleStyle(tint: Color.accent))
                 }
                 .onAppear {
                     viewModel.retrieveUser()
@@ -66,6 +60,11 @@ struct AccountView: View {
                     }
                 }
                 .navigationTitle("🤣 Account")
+                
+                Text("⭐ Избранное ⭐")
+                    .bold()
+                    .font(.headline)
+                FavouriteDishesListView()
             }
         }
         .alert(item: $viewModel.alertItem) { alertItem in

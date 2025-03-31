@@ -11,6 +11,7 @@ import SwiftUI
 struct Testing4App: App {
     
     var order = Order()
+    var listOfDishes = ListOfDishes()
     
     @State private var isLoggedIn: Bool = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
@@ -19,7 +20,9 @@ struct Testing4App: App {
         WindowGroup {
             NavigationView {
                 if !isLoggedIn {
-                    CookerinhoTabViews(isLoggedIn: $isLoggedIn).environmentObject(order)
+                    CookerinhoTabViews(isLoggedIn: $isLoggedIn)
+                        .environmentObject(listOfDishes)
+                        .environmentObject(order)
                 } else {
                     LoginView(isLoggedIn: $isLoggedIn)
                 }
