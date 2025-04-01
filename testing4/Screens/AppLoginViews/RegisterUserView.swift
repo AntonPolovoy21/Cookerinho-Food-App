@@ -46,9 +46,14 @@ struct Register : View {
                 
                 VStack(spacing: 20){
                     
-                    Text("Hello").font(.title).fontWeight(.bold)
+                    Text("Приветствуем")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.black)
                     
-                    Text("Create an account").fontWeight(.bold)
+                    Text("Создайте Учетную Запись")
+                        .fontWeight(.bold)
+                        .foregroundStyle(.black)
                     
                     CustomTF(value: self.$firstName, isName: true)
                     
@@ -62,7 +67,7 @@ struct Register : View {
                         registerUser()
                     }) {
                         
-                        Text("Register Now")
+                        Text("Зарегистрироваться")
                             .frame(width: UIScreen.main.bounds.width - 100)
                             .padding(.vertical)
                             .foregroundColor(.white)
@@ -100,7 +105,7 @@ struct Register : View {
     func registerUser() {
         guard !firstName.isEmpty, !lastName.isEmpty, !email.isEmpty, !password.isEmpty else {
             withAnimation {
-                alertMessage = "Please fill in all fields."
+                alertMessage = "Пожалуйста, заполните все поля"
                 showAlert = true
             }
             return
@@ -108,7 +113,7 @@ struct Register : View {
         
         guard let url = URL(string: "http://localhost:1111/createUser") else {
             withAnimation {
-                alertMessage = "Invalid URL."
+                alertMessage = "Проверьте подключение к WiFi"
                 showAlert = true
             }
             return
@@ -129,7 +134,7 @@ struct Register : View {
             request.httpBody = try JSONSerialization.data(withJSONObject: userData, options: [])
         } catch {
             withAnimation {
-                alertMessage = "Error creating request body."
+                alertMessage = "Проверьте подключение к WiFi"
                 showAlert = true
             }
             return
@@ -139,7 +144,7 @@ struct Register : View {
             if let error = error {
                 DispatchQueue.main.async {
                     withAnimation {
-                        alertMessage = "Network error: \(error.localizedDescription)"
+                        alertMessage = "Ошибка сети: \(error.localizedDescription)"
                         showAlert = true
                     }
                 }
@@ -149,7 +154,7 @@ struct Register : View {
             guard let httpResponse = response as? HTTPURLResponse else {
                 DispatchQueue.main.async {
                     withAnimation {
-                        alertMessage = "Invalid response."
+                        alertMessage = "Неверный ответ сервера"
                         showAlert = true
                     }
                 }
@@ -161,11 +166,15 @@ struct Register : View {
                     isRegistrationSuccessful = true
                     alertMessage = ""
                     UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+                    UserDefaults.standard.set(email, forKey: "userEmail")
+               
+                    UserDefaults.standard.set(firstName, forKey: "usersFirstName")
+                    UserDefaults.standard.set(lastName, forKey: "usersLastName")
                 }
             } else {
                 DispatchQueue.main.async {
                     withAnimation {
-                        alertMessage = "Registration failed! Please try again."
+                        alertMessage = "Регистрация не удалась! Пожалуйста, попробуйте еще раз"
                         showAlert = true
                         isRegistrationSuccessful = false
                     }

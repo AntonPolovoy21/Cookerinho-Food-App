@@ -19,7 +19,7 @@ struct Testing4App: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                if !isLoggedIn {
+                if isLoggedIn {
                     CookerinhoTabViews(isLoggedIn: $isLoggedIn)
                         .environmentObject(listOfDishes)
                         .environmentObject(order)

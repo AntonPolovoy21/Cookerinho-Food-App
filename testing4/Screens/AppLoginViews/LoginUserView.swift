@@ -50,9 +50,9 @@ struct LoginView : View {
                 
                 VStack(spacing: 20){
                     
-                    Text("Hello").font(.title).fontWeight(.bold).foregroundStyle(.black)
+                    Text("Приветствуем").font(.title).fontWeight(.bold).foregroundStyle(.black)
                     
-                    Text("Sign Into Your Account").fontWeight(.bold).foregroundStyle(.black)
+                    Text("Войдите В Свою Учетную Запись").fontWeight(.bold).foregroundStyle(.black)
                     
                     CustomTF(value: self.$email, isEmail: true)
                     
@@ -62,7 +62,7 @@ struct LoginView : View {
                         loginUser()
                     }) {
                         
-                        Text("Login")
+                        Text("Вход в систему")
                             .frame(width: UIScreen.main.bounds.width - 100)
                             .padding(.vertical)
                             .foregroundColor(.white)
@@ -77,7 +77,7 @@ struct LoginView : View {
                 
                 HStack{
                     
-                    Text("Don't Have an Account ?")
+                    Text("У вас нет аккаунта?")
                     
                     Button(action: {
                         
@@ -85,7 +85,7 @@ struct LoginView : View {
                         
                     }) {
                         
-                        Text("Register Now").foregroundColor(Color("Color1"))
+                        Text("Зарегистрироваться").foregroundColor(Color("Color1"))
                     }
                     
                 }.padding(.top)
@@ -110,7 +110,7 @@ struct LoginView : View {
             withAnimation {
                 
             }
-            alertMessage = "Please enter both email and password."
+            alertMessage = "Пожалуйста, введите электронную почту и пароль"
                 showAlert = true
             }
             return
@@ -124,7 +124,7 @@ struct LoginView : View {
             withAnimation {
                 
             }
-            alertMessage = "Invalid URL."
+            alertMessage = "Проверьте подключение к WiFi"
                 showAlert = true
             }
             return
@@ -145,7 +145,7 @@ struct LoginView : View {
             withAnimation {
                 
             }
-            alertMessage = "Error creating request body."
+            alertMessage = "Проверьте подключение к WiFi"
                 showAlert = true
             }
             return
@@ -161,7 +161,7 @@ struct LoginView : View {
             withAnimation {
                 
             }
-            alertMessage = "Network error: \(error.localizedDescription)"
+            alertMessage = "Ошибка сети: \(error.localizedDescription)"
                         showAlert = true
                     }
                 }
@@ -177,7 +177,7 @@ struct LoginView : View {
             withAnimation {
                 
             }
-            alertMessage = "Invalid response."
+            alertMessage = "Неверный ответ сервера"
                         showAlert = true
                     }
                 }
@@ -199,7 +199,7 @@ struct LoginView : View {
             withAnimation {
                 
             }
-            alertMessage = "Login failed! Check your credentials!"
+            alertMessage = "Вход в систему не удался! Проверьте свои учетные данные!"
                         showAlert = true
                     }
                 }

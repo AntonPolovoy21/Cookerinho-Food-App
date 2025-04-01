@@ -21,7 +21,7 @@ struct CustomTF: View {
         VStack(spacing: 8) {
             
             HStack {
-                Text(self.isName ? "Name" : self.isSurname ? "Surname" : self.isEmail ? "Email" : "Password")
+                Text(self.isName ? "Имя" : self.isSurname ? "Фамилия" : self.isEmail ? "Почта" : "Пароль")
                     .foregroundColor(Color.black.opacity(0.5))
                     .onChange(of: value) { newValue in
                         if self.isEmail {
@@ -35,14 +35,17 @@ struct CustomTF: View {
             HStack {
                 if self.isEmail || self.isName || self.isSurname {
                     TextField("", text: self.$value)
+                        .foregroundStyle(.black)
                     
                 } else {
                     if isPasswordVisible {
                         TextField("", text: self.$value)
                             .autocorrectionDisabled()
+                            .foregroundStyle(.black)
                     } else {
                         SecureField("", text: self.$value)
                             .autocorrectionDisabled()
+                            .foregroundStyle(.black)
                     }
                 }
                 

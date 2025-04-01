@@ -18,7 +18,7 @@ struct CustomAlertView: View {
             CustomAlert(
                 show: $wrappedState,
                 withIconName: "xmark.circle.fill",
-                withText: "ERROR",
+                withText: "Ошибка",
                 withDetails: withDetails,
                 withGradientColor: .red
             )
@@ -34,7 +34,7 @@ struct CustomAlertView: View {
             CustomAlert(
                 show: $wrappedState,
                 withIconName: "exclamationmark.circle.fill",
-                withText: "WARNING!",
+                withText: "Внимание!",
                 withDetails: withDetails,
                 withGradientColor: .yellow
             )

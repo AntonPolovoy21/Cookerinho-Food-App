@@ -50,8 +50,6 @@ struct FavouriteDishesListView: View {
             
             let idsArray = savedIdsString.split(separator: "-").compactMap { Int($0) }
             
-            print(savedIdsString, idsArray)
-            
             DispatchQueue.main.async {
                 self.viewModel.favouriteDishesList.removeAll()
                 

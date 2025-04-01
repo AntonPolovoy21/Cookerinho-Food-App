@@ -11,6 +11,4 @@ struct User: Codable {
     var firstName = ""
     var lastName = ""
     var birthDate = Date()
-    var isExtraNapkins = false
-    var frequentRefills = false
 }

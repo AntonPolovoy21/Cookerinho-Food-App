@@ -16,7 +16,7 @@ struct DishListView: View {
         ZStack {
             NavigationView{
                 List {
-                    ForEach(viewModel.dishes) { dish in
+                    ForEach(listOfDishes.dishesItems) { dish in
                         DishCellView(dish: dish)
                             .listRowSeparator(.visible)
                             .onTapGesture {
@@ -59,7 +59,6 @@ struct DishListView: View {
                 let firebaseFactory = FirebaseFactory()
                 firebaseFactory.fetchDishes { dishesFromDB in
                     self.listOfDishes.dishesItems = dishesFromDB
-                    self.viewModel.dishes = dishesFromDB
                     self.viewModel.isLoading = false
                 }
             }
