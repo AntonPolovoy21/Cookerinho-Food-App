@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		10288D1A2D07724600EF09CE /* LoginUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10288D192D07724600EF09CE /* LoginUserView.swift */; };
 		10288D1C2D0775B300EF09CE /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10288D1B2D0775B300EF09CE /* RegisterUserView.swift */; };
+		104803152D9D71520074ECFF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 104803142D9D71520074ECFF /* FirebaseAuth */; };
 		106E78C42D0B7CB100D79A58 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E78C32D0B7CB100D79A58 /* CustomTextField.swift */; };
 		107D54C02D96E26C00A551FD /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D54BF2D96E26500A551FD /* CustomAlertView.swift */; };
 		107D54C22D96E2AA00A551FD /* CustomAlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D54C12D96E2A400A551FD /* CustomAlertType.swift */; };
@@ -105,6 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				107D54CE2D96F81A00A551FD /* FirebaseDatabase in Frameworks */,
+				104803152D9D71520074ECFF /* FirebaseAuth in Frameworks */,
 				107D54C52D96E95F00A551FD /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,6 +682,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		104803142D9D71520074ECFF /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 107D54C32D96E95F00A551FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		107D54C42D96E95F00A551FD /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 107D54C32D96E95F00A551FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

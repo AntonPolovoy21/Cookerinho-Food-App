@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct Register : View {
     
@@ -111,6 +112,18 @@ struct Register : View {
             return
         }
         
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if let error = error {
+                DispatchQueue.main.async {
+                    withAnimation {
+                        alertMessage = "Ошибка регистрации"
+                        showAlert = true
+                    }
+                }
+                return
+            }
+        }
+        
         guard let url = URL(string: "http://localhost:1111/createUser") else {
             withAnimation {
                 alertMessage = "Проверьте подключение к WiFi"
@@ -145,7 +158,7 @@ struct Register : View {
             if let error = error {
                 DispatchQueue.main.async {
                     withAnimation {
-                        alertMessage = "Ошибка сети: \(error.localizedDescription)"
+                        alertMessage = "Ошибка сети"
                         showAlert = true
                     }
                 }

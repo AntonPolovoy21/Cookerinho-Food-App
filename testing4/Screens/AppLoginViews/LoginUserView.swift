@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct LoginView : View {
     
@@ -116,6 +117,18 @@ struct LoginView : View {
             return
         }
         
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                DispatchQueue.main.async {
+                    withAnimation {
+                        alertMessage = "Ошибка входа. Неверный логин или пароль"
+                        showAlert = true
+                    }
+                }
+                return
+            }
+        }
+        
         guard let url = URL(string: "http://localhost:1111/userLogin") else {
             withAnimation {
                 withAnimation {
@@ -183,7 +196,7 @@ struct LoginView : View {
                 }
                 return
             }
-
+            
             if httpResponse.statusCode == 200 {
                 guard let data = data else {
                     DispatchQueue.main.async {
@@ -209,7 +222,7 @@ struct LoginView : View {
                             UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
                             
                             UserDefaults.standard.set(email, forKey: "userEmail")
-                       
+                            
                             UserDefaults.standard.set(firstName, forKey: "usersFirstName")
                             UserDefaults.standard.set(lastName, forKey: "usersLastName")
                             
