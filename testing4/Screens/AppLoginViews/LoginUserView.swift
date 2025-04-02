@@ -105,12 +105,12 @@ struct LoginView : View {
         guard !email.isEmpty, !password.isEmpty else {
             withAnimation {
                 withAnimation {
-                
-            }
-            withAnimation {
-                
-            }
-            alertMessage = "Пожалуйста, введите электронную почту и пароль"
+                    
+                }
+                withAnimation {
+                    
+                }
+                alertMessage = "Пожалуйста, введите электронную почту и пароль"
                 showAlert = true
             }
             return
@@ -119,12 +119,12 @@ struct LoginView : View {
         guard let url = URL(string: "http://localhost:1111/userLogin") else {
             withAnimation {
                 withAnimation {
-                
-            }
-            withAnimation {
-                
-            }
-            alertMessage = "Проверьте подключение к WiFi"
+                    
+                }
+                withAnimation {
+                    
+                }
+                alertMessage = "Проверьте подключение к WiFi"
                 showAlert = true
             }
             return
@@ -133,19 +133,19 @@ struct LoginView : View {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        
         let loginData = ["email": email, "password": password]
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: loginData, options: [])
         } catch {
             withAnimation {
                 withAnimation {
-                
-            }
-            withAnimation {
-                
-            }
-            alertMessage = "Проверьте подключение к WiFi"
+                    
+                }
+                withAnimation {
+                    
+                }
+                alertMessage = "Проверьте подключение к WiFi"
                 showAlert = true
             }
             return
@@ -156,12 +156,12 @@ struct LoginView : View {
                 DispatchQueue.main.async {
                     withAnimation {
                         withAnimation {
-                
-            }
-            withAnimation {
-                
-            }
-            alertMessage = "Ошибка сети: \(error.localizedDescription)"
+                            
+                        }
+                        withAnimation {
+                            
+                        }
+                        alertMessage = "Ошибка сети: \(error.localizedDescription)"
                         showAlert = true
                     }
                 }
@@ -172,34 +172,75 @@ struct LoginView : View {
                 DispatchQueue.main.async {
                     withAnimation {
                         withAnimation {
-                
-            }
-            withAnimation {
-                
-            }
-            alertMessage = "Неверный ответ сервера"
+                            
+                        }
+                        withAnimation {
+                            
+                        }
+                        alertMessage = "Неверный ответ сервера"
                         showAlert = true
                     }
                 }
                 return
             }
-            
+
             if httpResponse.statusCode == 200 {
-                DispatchQueue.main.async {
-                    isLoginSuccessful = true
-                    isLoggedIn = true
-                    UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+                guard let data = data else {
+                    DispatchQueue.main.async {
+                        withAnimation {
+                            alertMessage = "Нет данных от сервера"
+                            showAlert = true
+                        }
+                    }
+                    return
+                }
+                
+                do {
+                    if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                       let user = jsonResponse["user"] as? [String: Any],
+                       let firstName = user["firstName"] as? String,
+                       let lastName = user["lastName"] as? String,
+                       let email = user["email"] as? String ,
+                       let favorites = user["favorites"] as? String {
+                        
+                        DispatchQueue.main.async {
+                            isLoginSuccessful = true
+                            isLoggedIn = true
+                            UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+                            
+                            UserDefaults.standard.set(email, forKey: "userEmail")
+                       
+                            UserDefaults.standard.set(firstName, forKey: "usersFirstName")
+                            UserDefaults.standard.set(lastName, forKey: "usersLastName")
+                            
+                            UserDefaults.standard.set(favorites, forKey: "favouriteDishes")
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                alertMessage = "Ошибка при обработке ответа сервера"
+                                showAlert = true
+                            }
+                        }
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        withAnimation {
+                            alertMessage = "Ошибка при обработке ответа сервера"
+                            showAlert = true
+                        }
+                    }
                 }
             } else {
                 DispatchQueue.main.async {
                     withAnimation {
                         withAnimation {
-                
-            }
-            withAnimation {
-                
-            }
-            alertMessage = "Вход в систему не удался! Проверьте свои учетные данные!"
+                            
+                        }
+                        withAnimation {
+                            
+                        }
+                        alertMessage = "Вход в систему не удался! Проверьте свои учетные данные!"
                         showAlert = true
                     }
                 }

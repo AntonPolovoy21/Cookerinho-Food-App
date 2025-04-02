@@ -41,5 +41,7 @@ final class FavoritesManager {
     private func saveFavouriteIds(_ ids: [Int]) {
         let idsString = ids.map { String($0) }.joined(separator: "-")
         UserDefaults.standard.set(idsString, forKey: "favouriteDishes")
+        
+        UsersServerManager.updateUserFavorites(withFavorites: idsString)
     }
 }

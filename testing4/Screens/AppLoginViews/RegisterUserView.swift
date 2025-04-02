@@ -127,7 +127,8 @@ struct Register : View {
             "firstName": firstName,
             "lastName": lastName,
             "email": email,
-            "password": password
+            "password": password,
+            "favorites": ""
         ]
         
         do {
@@ -165,11 +166,15 @@ struct Register : View {
                 DispatchQueue.main.async {
                     isRegistrationSuccessful = true
                     alertMessage = ""
+                    
                     UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+                    
                     UserDefaults.standard.set(email, forKey: "userEmail")
                
                     UserDefaults.standard.set(firstName, forKey: "usersFirstName")
                     UserDefaults.standard.set(lastName, forKey: "usersLastName")
+                    
+                    UserDefaults.standard.set("", forKey: "favouriteDishes")
                 }
             } else {
                 DispatchQueue.main.async {
