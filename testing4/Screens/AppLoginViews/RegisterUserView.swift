@@ -140,7 +140,6 @@ struct Register : View {
             "firstName": firstName,
             "lastName": lastName,
             "email": email,
-            "password": password,
             "favorites": ""
         ]
         

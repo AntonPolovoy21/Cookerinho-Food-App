@@ -13,7 +13,8 @@ struct LoginView : View {
     @State private var email = ""
     @State private var password = ""
     
-    @State private var show = false
+    @State private var showRegister = false
+    @State private var showForgot = false
     
     @Binding var isLoggedIn: Bool
     @State private var isLoginSuccessful: Bool = false
@@ -25,7 +26,12 @@ struct LoginView : View {
         
         ZStack{
             
-            NavigationLink(destination: Register(show: self.$show, isRegistrationSuccessful: $isLoggedIn), isActive: self.$show) {
+            NavigationLink(destination: Register(show: self.$showRegister, isRegistrationSuccessful: $isLoggedIn), isActive: self.$showRegister) {
+                
+                Text("")
+            }
+            
+            NavigationLink(destination: ForgotPasswordView(show: self.$showForgot), isActive: self.$showForgot) {
                 
                 Text("")
             }
@@ -53,7 +59,7 @@ struct LoginView : View {
                     
                     Text("Приветствуем").font(.title).fontWeight(.bold).foregroundStyle(.black)
                     
-                    Text("Войдите В Свою Учетную Запись").fontWeight(.bold).foregroundStyle(.black)
+                    Text("Войдите в свою учетную запись").fontWeight(.bold).foregroundStyle(.black)
                     
                     CustomTF(value: self.$email, isEmail: true)
                     
@@ -82,14 +88,25 @@ struct LoginView : View {
                     
                     Button(action: {
                         
-                        self.show.toggle()
+                        self.showRegister.toggle()
                         
                     }) {
                         
                         Text("Зарегистрироваться").foregroundColor(Color("Color1"))
                     }
                     
-                }.padding(.top)
+                }
+                .padding(.top)
+                
+                Button(action: {
+                    
+                    self.showForgot.toggle()
+                    
+                }) {
+                    
+                    Text("Забыли пароль?").foregroundColor(Color("Color1"))
+                }
+                .padding(.top, 20)
                 
                 Spacer(minLength: 0)
                 
@@ -118,7 +135,7 @@ struct LoginView : View {
         }
         
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            if let error = error {
+            if let _ = error {
                 DispatchQueue.main.async {
                     withAnimation {
                         alertMessage = "Ошибка входа. Неверный логин или пароль"
@@ -127,108 +144,115 @@ struct LoginView : View {
                 }
                 return
             }
-        }
-        
-        guard let url = URL(string: "http://localhost:1111/userLogin") else {
-            withAnimation {
+            
+            guard let url = URL(string: "http://localhost:1111/userLogin") else {
                 withAnimation {
-                    
-                }
-                withAnimation {
-                    
-                }
-                alertMessage = "Проверьте подключение к WiFi"
-                showAlert = true
-            }
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let loginData = ["email": email, "password": password]
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: loginData, options: [])
-        } catch {
-            withAnimation {
-                withAnimation {
-                    
-                }
-                withAnimation {
-                    
-                }
-                alertMessage = "Проверьте подключение к WiFi"
-                showAlert = true
-            }
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                DispatchQueue.main.async {
                     withAnimation {
-                        withAnimation {
-                            
-                        }
-                        withAnimation {
-                            
-                        }
-                        alertMessage = "Ошибка сети: \(error.localizedDescription)"
-                        showAlert = true
+                        
                     }
+                    withAnimation {
+                        
+                    }
+                    alertMessage = "Проверьте подключение к WiFi"
+                    showAlert = true
                 }
                 return
             }
             
-            guard let httpResponse = response as? HTTPURLResponse else {
-                DispatchQueue.main.async {
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let loginData = ["email": email]
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: loginData, options: [])
+            } catch {
+                withAnimation {
                     withAnimation {
-                        withAnimation {
-                            
-                        }
-                        withAnimation {
-                            
-                        }
-                        alertMessage = "Неверный ответ сервера"
-                        showAlert = true
+                        
                     }
+                    withAnimation {
+                        
+                    }
+                    alertMessage = "Проверьте подключение к WiFi"
+                    showAlert = true
                 }
                 return
             }
             
-            if httpResponse.statusCode == 200 {
-                guard let data = data else {
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
                     DispatchQueue.main.async {
                         withAnimation {
-                            alertMessage = "Нет данных от сервера"
+                            withAnimation {
+                                
+                            }
+                            withAnimation {
+                                
+                            }
+                            alertMessage = "Ошибка сети: \(error.localizedDescription)"
                             showAlert = true
                         }
                     }
                     return
                 }
                 
-                do {
-                    if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                       let user = jsonResponse["user"] as? [String: Any],
-                       let firstName = user["firstName"] as? String,
-                       let lastName = user["lastName"] as? String,
-                       let email = user["email"] as? String ,
-                       let favorites = user["favorites"] as? String {
-                        
-                        DispatchQueue.main.async {
-                            isLoginSuccessful = true
-                            isLoggedIn = true
-                            UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
-                            
-                            UserDefaults.standard.set(email, forKey: "userEmail")
-                            
-                            UserDefaults.standard.set(firstName, forKey: "usersFirstName")
-                            UserDefaults.standard.set(lastName, forKey: "usersLastName")
-                            
-                            UserDefaults.standard.set(favorites, forKey: "favouriteDishes")
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    DispatchQueue.main.async {
+                        withAnimation {
+                            withAnimation {
+                                
+                            }
+                            withAnimation {
+                                
+                            }
+                            alertMessage = "Неверный ответ сервера"
+                            showAlert = true
                         }
-                    } else {
+                    }
+                    return
+                }
+                
+                if httpResponse.statusCode == 200 {
+                    guard let data = data else {
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                alertMessage = "Нет данных от сервера"
+                                showAlert = true
+                            }
+                        }
+                        return
+                    }
+                    
+                    do {
+                        if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                           let user = jsonResponse["user"] as? [String: Any],
+                           let firstName = user["firstName"] as? String,
+                           let lastName = user["lastName"] as? String,
+                           let email = user["email"] as? String ,
+                           let favorites = user["favorites"] as? String {
+                            
+                            DispatchQueue.main.async {
+                                isLoginSuccessful = true
+                                isLoggedIn = true
+                                UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+                                
+                                UserDefaults.standard.set(email, forKey: "userEmail")
+                                
+                                UserDefaults.standard.set(firstName, forKey: "usersFirstName")
+                                UserDefaults.standard.set(lastName, forKey: "usersLastName")
+                                
+                                UserDefaults.standard.set(favorites, forKey: "favouriteDishes")
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                withAnimation {
+                                    alertMessage = "Ошибка при обработке ответа сервера"
+                                    showAlert = true
+                                }
+                            }
+                        }
+                    } catch {
                         DispatchQueue.main.async {
                             withAnimation {
                                 alertMessage = "Ошибка при обработке ответа сервера"
@@ -236,30 +260,23 @@ struct LoginView : View {
                             }
                         }
                     }
-                } catch {
+                } else {
                     DispatchQueue.main.async {
                         withAnimation {
-                            alertMessage = "Ошибка при обработке ответа сервера"
+                            withAnimation {
+                                
+                            }
+                            withAnimation {
+                                
+                            }
+                            alertMessage = "Вход в систему не удался! Проверьте свои учетные данные!"
                             showAlert = true
                         }
                     }
                 }
-            } else {
-                DispatchQueue.main.async {
-                    withAnimation {
-                        withAnimation {
-                            
-                        }
-                        withAnimation {
-                            
-                        }
-                        alertMessage = "Вход в систему не удался! Проверьте свои учетные данные!"
-                        showAlert = true
-                    }
-                }
             }
+            
+            task.resume()
         }
-        
-        task.resume()
     }
 }
