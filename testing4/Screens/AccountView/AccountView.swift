@@ -68,6 +68,7 @@ struct AccountView: View {
                                     alertMessage = "Данные вашего профиля были успешно сохранены!"
                                     alertType = .ok
                                     
+                                    UserDefaults.standard.set(viewModel.user.firstName, forKey: "usersFirstName")
                                     UsersServerManager.updateUserName(withFirstName: viewModel.user.firstName, withLastName: viewModel.user.lastName)
                                 }
                                 catch {

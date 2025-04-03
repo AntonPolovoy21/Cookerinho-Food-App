@@ -52,7 +52,7 @@ struct Register : View {
                         .fontWeight(.bold)
                         .foregroundStyle(.black)
                     
-                    Text("Создайте Учетную Запись")
+                    Text("Создайте учетную запись")
                         .fontWeight(.bold)
                         .foregroundStyle(.black)
                     
@@ -113,7 +113,7 @@ struct Register : View {
         }
         
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if let error = error {
+            if let _ = error {
                 DispatchQueue.main.async {
                     withAnimation {
                         alertMessage = "Ошибка регистрации"
@@ -154,7 +154,7 @@ struct Register : View {
         }
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
+            if let _ = error {
                 DispatchQueue.main.async {
                     withAnimation {
                         alertMessage = "Ошибка сети"

@@ -112,7 +112,6 @@ struct ForgotPasswordView : View {
         }
         
         Auth.auth().sendPasswordReset(withEmail: email) { error in
-            print(1)
             if let _ = error {
                 DispatchQueue.main.async {
                     withAnimation {
@@ -122,9 +121,7 @@ struct ForgotPasswordView : View {
                     }
                 }
             } else {
-                print(2)
                 UsersServerManager.searchUser(byEmail: email) { result in
-                    print(result)
                     switch result {
                     case .ok:
                         DispatchQueue.main.async {

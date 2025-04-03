@@ -18,7 +18,7 @@ struct DishesRequest: Decodable {
 }
 
 struct MockData {
-    static let sampleDish = Dish(price: 9.99, name: "Sample Dish", description: "This is the description for my dish. It's yummy.", imageURL: "carbonara.jpeg", id: 0, calories: 99, grams: 99)
+    static let sampleDish = Dish(price: 0, name: "", description: "This is the description for my dish. It's yummy.", imageURL: "carbonara.jpeg", id: 0, calories: 99, grams: 99)
     
     static let dishes = [sampleDish, sampleDish, sampleDish, sampleDish, sampleDish]
 }

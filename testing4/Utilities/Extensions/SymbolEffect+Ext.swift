@@ -1,5 +1,5 @@
 import SwiftUI
 
-extension BounceSymbolEffect: IndefiniteSymbolEffect {
+extension BounceSymbolEffect: @retroactive IndefiniteSymbolEffect {
     
 }
