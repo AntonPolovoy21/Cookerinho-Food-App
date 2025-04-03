@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Testing4App: App {
+struct CookerinhoFoodApp: App {
     
     var order = Order()
     var listOfDishes = ListOfDishes()

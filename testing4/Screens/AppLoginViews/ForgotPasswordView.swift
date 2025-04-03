@@ -112,7 +112,8 @@ struct ForgotPasswordView : View {
         }
         
         Auth.auth().sendPasswordReset(withEmail: email) { error in
-            if let error = error {
+            print(1)
+            if let _ = error {
                 DispatchQueue.main.async {
                     withAnimation {
                         alertMessage = "Ошибка отправки письма с восстановлением"
@@ -121,11 +122,34 @@ struct ForgotPasswordView : View {
                     }
                 }
             } else {
-                DispatchQueue.main.async {
-                    withAnimation {
-                        alertMessage = "Письмо для сброса пароля отправлено! Проверьте вашу почту."
-                        showAlert = true
-                        alertType = .ok
+                print(2)
+                UsersServerManager.searchUser(byEmail: email) { result in
+                    print(result)
+                    switch result {
+                    case .ok:
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                alertMessage = "Письмо для сброса пароля отправлено! Проверьте вашу почту"
+                                showAlert = true
+                                alertType = .ok
+                            }
+                        }
+                    case .notFound:
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                alertMessage = "Пользователь с данной почтой не был зарегистрирован"
+                                showAlert = true
+                                alertType = .warning
+                            }
+                        }
+                    case .wifiError:
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                alertMessage = "Ошибка сети"
+                                showAlert = true
+                                alertType = .error
+                            }
+                        }
                     }
                 }
             }
