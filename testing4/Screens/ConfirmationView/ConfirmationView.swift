@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ConfirmationView: View {
     @Binding var isPresented: Bool
+    @Binding var wasOrderPlaced: Bool
+    
     @EnvironmentObject var order: Order
     
     @State private var name: String = UserDefaults.standard.string(forKey: "usersFirstName") ?? ""
@@ -102,6 +104,8 @@ struct ConfirmationView: View {
                             }
                             
                             showAlert = true
+                            wasOrderPlaced = true
+                            UserDefaults.standard.set(true, forKey: "wasOrderPlaced")
                         }
                         else {
                             showAlert = true
@@ -128,7 +132,6 @@ struct ConfirmationView: View {
                 
             }
             .onAppear {
-                print(UserDefaults.standard.string(forKey: "usersFirstName") ?? "ugug")
                 self.name = UserDefaults.standard.string(forKey: "usersFirstName") ?? ""
             }
             .edgesIgnoringSafeArea(.top)
@@ -176,6 +179,6 @@ struct ConfirmationView: View {
 }
 
 #Preview {
-    ConfirmationView(isPresented: .constant(true))
+    ConfirmationView(isPresented: .constant(true), wasOrderPlaced: .constant(false))
         .environmentObject(Order())
 }

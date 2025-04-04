@@ -13,6 +13,8 @@ struct CookerinhoTabViews: View {
     
     @Binding var isLoggedIn: Bool
     
+    @State private var wasOrderPlaced: Bool = UserDefaults.standard.bool(forKey: "wasOrderPlaced")
+    
     var body: some View {
         TabView {
             DishListView()
@@ -36,13 +38,13 @@ struct CookerinhoTabViews: View {
                             .padding()
                     }
                 }
-            OrderView()
+            OrderView(wasOrderPlaced: $wasOrderPlaced)
                 .tabItem {
                     Label("Заказ",
                           systemImage: "list.bullet.clipboard"
                     )
                 }
-                .badge(order.orderItems.count)
+                .badge(wasOrderPlaced ? 0 : order.orderItems.count)
         }
     }
 }

@@ -11,7 +11,7 @@ import PhotosUI
 struct TestView: View {
     
     var body: some View {
-        ProfilePhotoPickerView()
+        CustomIndicatorView(type: .ok)
     }
 }
 

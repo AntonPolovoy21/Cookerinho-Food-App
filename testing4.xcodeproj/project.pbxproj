@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1001B12E2DA011E500FBDCCF /* OrderPlacedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1001B12D2DA011E400FBDCCF /* OrderPlacedView.swift */; };
+		1001B1342DA017DF00FBDCCF /* CustomIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1001B1332DA017DF00FBDCCF /* CustomIndicator.swift */; };
+		1001B1362DA017F600FBDCCF /* CustomIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1001B1352DA017F600FBDCCF /* CustomIndicatorView.swift */; };
 		10288D1A2D07724600EF09CE /* LoginUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10288D192D07724600EF09CE /* LoginUserView.swift */; };
 		10288D1C2D0775B300EF09CE /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10288D1B2D0775B300EF09CE /* RegisterUserView.swift */; };
 		104803152D9D71520074ECFF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 104803142D9D71520074ECFF /* FirebaseAuth */; };
@@ -58,6 +61,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1001B12D2DA011E400FBDCCF /* OrderPlacedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPlacedView.swift; sourceTree = "<group>"; };
+		1001B1332DA017DF00FBDCCF /* CustomIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIndicator.swift; sourceTree = "<group>"; };
+		1001B1352DA017F600FBDCCF /* CustomIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIndicatorView.swift; sourceTree = "<group>"; };
 		10288D192D07724600EF09CE /* LoginUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserView.swift; sourceTree = "<group>"; };
 		10288D1B2D0775B300EF09CE /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
 		104803162D9D79170074ECFF /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
@@ -120,6 +126,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1001B12F2DA0178B00FBDCCF /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1001B1322DA017B800FBDCCF /* Indicator */,
+				107D54CA2D96F22D00A551FD /* FirebaseImage.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		1001B1302DA0179900FBDCCF /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				10F071992D994659005C9EFF /* ProfilePhotoPickerView.swift */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
+		1001B1312DA017A600FBDCCF /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				107D54BF2D96E26500A551FD /* CustomAlertView.swift */,
+				108DD63D2D650E8000D18BA6 /* CustomAlert.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		1001B1322DA017B800FBDCCF /* Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				1001B1332DA017DF00FBDCCF /* CustomIndicator.swift */,
+				1001B1352DA017F600FBDCCF /* CustomIndicatorView.swift */,
+			);
+			path = Indicator;
+			sourceTree = "<group>";
+		};
 		10288D182D07723100EF09CE /* AppLoginViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,12 +174,11 @@
 		106E78C22D0B7C9A00D79A58 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				107D54CA2D96F22D00A551FD /* FirebaseImage.swift */,
-				107D54BF2D96E26500A551FD /* CustomAlertView.swift */,
+				1001B1312DA017A600FBDCCF /* Alerts */,
+				1001B1302DA0179900FBDCCF /* Pickers */,
+				1001B12F2DA0178B00FBDCCF /* Images */,
 				106E78C32D0B7CB100D79A58 /* CustomTextField.swift */,
-				108DD63D2D650E8000D18BA6 /* CustomAlert.swift */,
 				108DD6412D6524FA00D18BA6 /* TestView.swift */,
-				10F071992D994659005C9EFF /* ProfilePhotoPickerView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -220,6 +260,7 @@
 		84C557262AF9226100B872C5 /* OrderView */ = {
 			isa = PBXGroup;
 			children = (
+				1001B12D2DA011E400FBDCCF /* OrderPlacedView.swift */,
 				84E236412AF3C61B00AEE5F1 /* OrderView.swift */,
 			);
 			path = OrderView;
@@ -447,6 +488,7 @@
 				108DD63E2D650E8000D18BA6 /* CustomAlert.swift in Sources */,
 				108DD6402D6523E400D18BA6 /* SymbolEffect+Ext.swift in Sources */,
 				84E236362AF3C42900AEE5F1 /* CookerinhoTabViews.swift in Sources */,
+				1001B1362DA017F600FBDCCF /* CustomIndicatorView.swift in Sources */,
 				84C5571E2AF80D3800B872C5 /* LoadingView.swift in Sources */,
 				10F012BB2D9ADF930082952C /* FavouritesManager.swift in Sources */,
 				104803172D9D79250074ECFF /* ForgotPasswordView.swift in Sources */,
@@ -464,7 +506,9 @@
 				84C557352AF9571800B872C5 /* XDismissButton.swift in Sources */,
 				107D54C02D96E26C00A551FD /* CustomAlertView.swift in Sources */,
 				106E78C42D0B7CB100D79A58 /* CustomTextField.swift in Sources */,
+				1001B12E2DA011E500FBDCCF /* OrderPlacedView.swift in Sources */,
 				10288D1A2D07724600EF09CE /* LoginUserView.swift in Sources */,
+				1001B1342DA017DF00FBDCCF /* CustomIndicator.swift in Sources */,
 				108DD6422D6524FA00D18BA6 /* TestView.swift in Sources */,
 				845913082AFBF9AA00DECA16 /* User.swift in Sources */,
 				10F793D62D9E9EE200F219D4 /* ConfirmationView.swift in Sources */,

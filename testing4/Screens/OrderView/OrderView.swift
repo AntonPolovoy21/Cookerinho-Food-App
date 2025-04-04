@@ -14,6 +14,8 @@ struct OrderView: View {
     
     @State private var showConfirmation = false
     
+    @Binding var wasOrderPlaced: Bool
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -43,10 +45,13 @@ struct OrderView: View {
                     OrderEmptyStateView()
                 }
                 
+                if wasOrderPlaced {
+                    OrderPlacedView(wasOrderPlaced: $wasOrderPlaced)
+                }
             }
             .navigationTitle("🧾 Заказ")
             .sheet(isPresented: $showConfirmation) {
-                ConfirmationView(isPresented: $showConfirmation)
+                ConfirmationView(isPresented: $showConfirmation, wasOrderPlaced: $wasOrderPlaced)
             }
         }
     }
@@ -73,5 +78,5 @@ struct OrderView: View {
 }
 
 #Preview {
-    OrderView()
+    OrderView(wasOrderPlaced: .constant(false))
 }
