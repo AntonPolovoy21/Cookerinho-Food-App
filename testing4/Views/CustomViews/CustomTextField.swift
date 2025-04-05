@@ -37,11 +37,13 @@ struct CustomTF: View {
                 if self.isEmail || self.isName || self.isSurname {
                     TextField("", text: self.$value)
                         .foregroundStyle(.black)
+                        .autocorrectionDisabled()
                     
                 }
                 else if self.isPhoneNumber {
                     TextField("+375 (__) ___ __ __", text: self.$value)
                         .foregroundStyle(.black)
+                        .autocorrectionDisabled()
                 }
                 else {
                     if isPasswordVisible {

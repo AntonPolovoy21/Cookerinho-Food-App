@@ -99,13 +99,7 @@ struct ConfirmationView: View {
                     
                     Button(action: {
                         if validateInputs() {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                                isPresented = false
-                            }
-                            
-                            showAlert = true
-                            wasOrderPlaced = true
-                            UserDefaults.standard.set(true, forKey: "wasOrderPlaced")
+                            createOrder()
                         }
                         else {
                             showAlert = true
@@ -176,6 +170,57 @@ struct ConfirmationView: View {
         
         return true
     }
+    
+    private func createOrder() {
+            let url = URL(string: "http://localhost:3000/orders/makeNewOrder")!
+            let orderData: [String: Any] = [
+                "dishes": order.orderItems.map { ["name": $0.name] },
+                "customer": name,
+                "pickUp": deliveryTime,
+                "paymentMethod": paymentMethod,
+                "totalPrice": order.orderPrice,
+                "phoneNumber": phoneNumber,
+                "orderStatus": "Обрабатывается"
+            ]
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: orderData, options: [])
+            } catch {
+                print("Error serializing JSON: \(error)")
+                return
+            }
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("Error making request: \(error.localizedDescription)")
+                    DispatchQueue.main.async {
+                        alertMessage = "Ошибка при создании заказа"
+                        alertType = .error
+                        showAlert = true
+                    }
+                    return
+                }
+                
+                if let data = data {
+                    if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            isPresented = false
+                        }
+                        
+                        showAlert = true
+                        wasOrderPlaced = true
+                        UserDefaults.standard.set(true, forKey: "wasOrderPlaced")
+                    }
+                }
+            }
+            
+            task.resume()
+        }
 }
 
 #Preview {

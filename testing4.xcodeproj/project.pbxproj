@@ -27,6 +27,9 @@
 		108DD63E2D650E8000D18BA6 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DD63D2D650E8000D18BA6 /* CustomAlert.swift */; };
 		108DD6402D6523E400D18BA6 /* SymbolEffect+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DD63F2D6523E400D18BA6 /* SymbolEffect+Ext.swift */; };
 		108DD6422D6524FA00D18BA6 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DD6412D6524FA00D18BA6 /* TestView.swift */; };
+		10AB46D22DA12BEB00214ED2 /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB46D12DA12BE300214ED2 /* WebSocketManager.swift */; };
+		10AB46D42DA12D3600214ED2 /* PlacedOrderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB46D32DA12D2A00214ED2 /* PlacedOrderStatus.swift */; };
+		10AB46D72DA1453900214ED2 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 10AB46D62DA1453900214ED2 /* SocketIO */; };
 		10AEBDC62CDA4B4300EB243A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AEBDC52CDA4B4300EB243A /* Date+Ext.swift */; };
 		10F012B52D9AC9400082952C /* FavouriteDishesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F012B42D9AC9400082952C /* FavouriteDishesListView.swift */; };
 		10F012B72D9AC9520082952C /* FavouriteDishesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F012B62D9AC9460082952C /* FavouriteDishesListViewModel.swift */; };
@@ -78,6 +81,8 @@
 		108DD63D2D650E8000D18BA6 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		108DD63F2D6523E400D18BA6 /* SymbolEffect+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SymbolEffect+Ext.swift"; sourceTree = "<group>"; };
 		108DD6412D6524FA00D18BA6 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		10AB46D12DA12BE300214ED2 /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
+		10AB46D32DA12D2A00214ED2 /* PlacedOrderStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacedOrderStatus.swift; sourceTree = "<group>"; };
 		10AEBDC52CDA4B4300EB243A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		10F012B42D9AC9400082952C /* FavouriteDishesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteDishesListView.swift; sourceTree = "<group>"; };
 		10F012B62D9AC9460082952C /* FavouriteDishesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteDishesListViewModel.swift; sourceTree = "<group>"; };
@@ -118,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				107D54CE2D96F81A00A551FD /* FirebaseDatabase in Frameworks */,
+				10AB46D72DA1453900214ED2 /* SocketIO in Frameworks */,
 				104803152D9D71520074ECFF /* FirebaseAuth in Frameworks */,
 				107D54C52D96E95F00A551FD /* FirebaseStorage in Frameworks */,
 			);
@@ -279,6 +285,7 @@
 		84C557282AF9233A00B872C5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				10AB46D12DA12BE300214ED2 /* WebSocketManager.swift */,
 				10F012BA2D9ADF890082952C /* FavouritesManager.swift */,
 				84C557152AF56B2B00B872C5 /* UsersServerManager.swift */,
 			);
@@ -299,6 +306,7 @@
 		84C5572A2AF9238700B872C5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				10AB46D32DA12D2A00214ED2 /* PlacedOrderStatus.swift */,
 				10F012B82D9ACDC70082952C /* ListOfDishes.swift */,
 				84C557112AF55FDA00B872C5 /* Dish.swift */,
 				845913072AFBF9AA00DECA16 /* User.swift */,
@@ -443,6 +451,7 @@
 			mainGroup = 84E236272AF3C42900AEE5F1;
 			packageReferences = (
 				107D54C32D96E95F00A551FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				10AB46D52DA1453900214ED2 /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = 84E236312AF3C42900AEE5F1 /* Products */;
 			projectDirPath = "";
@@ -482,6 +491,7 @@
 				84E236442AF3C7BC00AEE5F1 /* DishListView.swift in Sources */,
 				10288D1C2D0775B300EF09CE /* RegisterUserView.swift in Sources */,
 				8459130D2AFC498500DECA16 /* Order.swift in Sources */,
+				10AB46D42DA12D3600214ED2 /* PlacedOrderStatus.swift in Sources */,
 				107D54D32D9708C100A551FD /* FirebaseFactory.swift in Sources */,
 				84C557182AF56C6100B872C5 /* MyError.swift in Sources */,
 				10F0719A2D994659005C9EFF /* ProfilePhotoPickerView.swift in Sources */,
@@ -492,6 +502,7 @@
 				84C5571E2AF80D3800B872C5 /* LoadingView.swift in Sources */,
 				10F012BB2D9ADF930082952C /* FavouritesManager.swift in Sources */,
 				104803172D9D79250074ECFF /* ForgotPasswordView.swift in Sources */,
+				10AB46D22DA12BEB00214ED2 /* WebSocketManager.swift in Sources */,
 				84C557122AF55FDA00B872C5 /* Dish.swift in Sources */,
 				84C557162AF56B2B00B872C5 /* UsersServerManager.swift in Sources */,
 				10AEBDC62CDA4B4300EB243A /* Date+Ext.swift in Sources */,
@@ -743,6 +754,14 @@
 				minimumVersion = 11.10.0;
 			};
 		};
+		10AB46D52DA1453900214ED2 /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -760,6 +779,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 107D54C32D96E95F00A551FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
+		};
+		10AB46D62DA1453900214ED2 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10AB46D52DA1453900214ED2 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

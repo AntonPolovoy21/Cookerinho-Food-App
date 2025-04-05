@@ -112,6 +112,14 @@ struct Register : View {
             return
         }
         
+        guard let url = URL(string: "http://localhost:1111/createUser") else {
+            withAnimation {
+                alertMessage = "Проверьте подключение к WiFi"
+                showAlert = true
+            }
+            return
+        }
+        
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let _ = error {
                 DispatchQueue.main.async {
@@ -122,14 +130,6 @@ struct Register : View {
                 }
                 return
             }
-        }
-        
-        guard let url = URL(string: "http://localhost:1111/createUser") else {
-            withAnimation {
-                alertMessage = "Проверьте подключение к WiFi"
-                showAlert = true
-            }
-            return
         }
         
         var request = URLRequest(url: url)
